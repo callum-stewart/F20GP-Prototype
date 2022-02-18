@@ -25,11 +25,11 @@ public class PlayerMovement : MonoBehaviour
         performGroundCheck();
         movePlayer();
 
+        // only jump if player is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-            
         
         // due to the way gravity works, time.deltatime needs squared, so 2 multiplications
         velocity.y += gravity * Time.deltaTime;     // only want to move on the y axis
