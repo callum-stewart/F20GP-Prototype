@@ -8,6 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     // movement speed
     public float speed = 3f;
+    // gravity equal to earth -9.18 m/s^2
+    public float gravity = -9.81f;
+    // velocity, used for gravity to measure speed of character
+    Vector3 velocity;
 
     // Update is called once per frame
     void Update()
@@ -21,5 +25,9 @@ public class PlayerMovement : MonoBehaviour
 
         // move 
         controller.Move(move * speed * Time.deltaTime);
+
+        // due to the way gravity works, time.deltatime needs squared, so 2 multiplications
+        velocity.y += gravity * Time.deltaTime;     // only want to move on the y axis
+        controller.Move(velocity * Time.deltaTime);
     }
 }
