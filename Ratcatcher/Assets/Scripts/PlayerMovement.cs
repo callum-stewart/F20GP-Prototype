@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;  // reference to the Character Controller object
 
     
-    public float speed = 3f;    // movement speed
+    public float speed = 2.5f;    // movement speed
+    public float sprintSpeed = 6f;
     public float gravity = -9.81f;  // gravity equal to earth -9.18 m/s^2
     public float jumpHeight = 1f;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     
     Vector3 velocity;   // velocity, used for gravity to measure speed of character
     bool isGrounded;
+    bool isSprinting;
 
     // Update is called once per frame
     void Update()
@@ -30,7 +32,13 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-        
+
+        // only sprint if player is grounded
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
+            isSprinting = true;
+        else
+            isSprinting = false;
+
         // due to the way gravity works, time.deltatime needs squared, so 2 multiplications
         velocity.y += gravity * Time.deltaTime;     // only want to move on the y axis
         controller.Move(velocity * Time.deltaTime);
@@ -46,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         // move 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * (isSprinting ? sprintSpeed : speed) * Time.deltaTime);
     }
 
     void performGroundCheck()
