@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // monitor frame drops
+        if((1.0f / Time.deltaTime) < 60)
+            Debug.Log(1.0f / Time.deltaTime);
+
         performGroundCheck();
         movePlayer();
         // only jump if player is grounded
