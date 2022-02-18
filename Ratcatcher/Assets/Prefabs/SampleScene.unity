@@ -244,6 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362910316}
   - component: {fileID: 362910317}
+  - component: {fileID: 362910318}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -327,6 +328,21 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &362910318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362910315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef97f0d14e4b8646a44e90ad19b92ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashLight: {fileID: 362910317}
+  onIntensity: 5
+  offIntensity: 5
 --- !u!43 &555308408
 Mesh:
   m_ObjectHideFlags: 0
@@ -2754,6 +2770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2140873134}
   speed: 3
+  sprintSpeed: 6
   gravity: -9.81
   jumpHeight: 1
   groundCheck: {fileID: 1465494144}

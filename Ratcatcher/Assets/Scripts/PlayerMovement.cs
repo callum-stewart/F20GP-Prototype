@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     
     public CharacterController controller;  // reference to the Character Controller object
 
-    
+
     public float speed = 2.5f;    // movement speed
     public float sprintSpeed = 6f;
     public float gravity = -9.81f;  // gravity equal to earth -9.18 m/s^2
