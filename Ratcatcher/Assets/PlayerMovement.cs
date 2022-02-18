@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // reference to the Character Controller object
-    public CharacterController controller;
-    // movement speed
-    public float speed = 3f;
-    // gravity equal to earth -9.18 m/s^2
-    public float gravity = -9.81f;
-    // velocity, used for gravity to measure speed of character
-    Vector3 velocity;
+    
+    public CharacterController controller;  // reference to the Character Controller object
+
+    
+    public float speed = 3f;    // movement speed
+    public float gravity = -9.81f;  // gravity equal to earth -9.18 m/s^2
+
+    public Transform groundCheck;   // reference to the ground checking object
+    public float groundDistance = 0.4f; // the radius of the sphere that performs the ground check
+    public LayerMask groundMask;    // used to check for different things that might need checked
+    
+    Vector3 velocity;   // velocity, used for gravity to measure speed of character
+    bool isGrounded;
 
     // Update is called once per frame
     void Update()
     {
+        // creates invisible sphere at groundCheck's position, returns true if anything in groundMask
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        // force player onto ground
+        if (isGrounded && velocity.y < 0)
+            velocity.y = -2f;   // 0f caused weird errors with not properly returning the surface, leaving a gap
+
         // get the players current position
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
