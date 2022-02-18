@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // only sprint if player is grounded
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded)
+        if (Input.GetButton("Sprint") && isGrounded)
             isSprinting = true;
         else
             isSprinting = false;

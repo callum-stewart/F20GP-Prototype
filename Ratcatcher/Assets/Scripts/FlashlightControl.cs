@@ -7,6 +7,7 @@ public class FlashlightControl : MonoBehaviour
     public Light flashLight;
     public float onIntensity = 5f;
     public float offIntensity = 0f;
+    public AudioSource clickSound;
 
     bool flashOn = true;
 
@@ -19,9 +20,12 @@ public class FlashlightControl : MonoBehaviour
 
     void setFlash()
     {
+        Debug.Log("tick");
         flashOn = !flashOn;
         // set intensity dependant on if flash is on or not
         flashLight.intensity = (flashOn ? onIntensity : offIntensity);
+        // play the click sound
+        clickSound.Play();
     }
 }
 
