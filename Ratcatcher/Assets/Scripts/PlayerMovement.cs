@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 2.5f;    // movement speed
     public float sprintSpeed = 6f;
-    public float gravity = -9.81f;  // gravity equal to earth -9.18 m/s^2
+    public float gravity = -12f;  // gravity equal to earth -9.18 m/s^2
     public float jumpHeight = 1f;
 
     public Transform groundCheck;   // reference to the ground checking object
@@ -26,10 +26,10 @@ public class PlayerMovement : MonoBehaviour
     {
         performGroundCheck();
         movePlayer();
-
         // only jump if player is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            Debug.Log("jumped");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
