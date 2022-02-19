@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RatCatcherController : MonoBehaviour
@@ -17,19 +15,22 @@ public class RatCatcherController : MonoBehaviour
     public float movementCooldown = 3f;
     public float movementTimer = 3f;
 
+    public float stunTolerance = 5f;
+    public float stunTimer = 0.25f;
     bool isStunned;
 
     private void Start()
     {
-        agent.speed = 2f;
+        agent.speed = 12f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(agent.transform.position);
         movementTimer -= Time.deltaTime;
+        stunTimer -= Time.deltaTime;
 
+        // while not stunned, hunt the player
         if(movementTimer < 0.0f && !isStunned)
         {
             playerPosX = Player.transform.position.x;
@@ -37,8 +38,43 @@ public class RatCatcherController : MonoBehaviour
             playerPosZ = Player.transform.position.z;
 
             agent.SetDestination(new Vector3(playerPosX, playerPosY, playerPosZ));
-            Debug.Log(agent.nextPosition);
         }
-        
+
+        // recovering between stun hits
+        if (stunTolerance < 5f && stunTimer < 0.0f && !isStunned)
+        {
+            stunTolerance += 0.01f;
+            stunTimer = 0.25f;
+        }
+
+        // stun duration has ended
+        if(isStunned && stunTimer < 0)
+        {
+                Debug.Log("recovered");
+                stunTolerance = 5f;
+                isStunned = false;
+                agent.isStopped = false;
+        }
+            
+
+    }
+
+    // registering a stun hit
+    public void stunHit()
+    {
+        stunTolerance -= 1f;
+
+        if (stunTolerance < 0f)
+            stunned();
+            
+    }
+
+    // when the player successfully stuns the rat catcher
+    public void stunned() 
+    {
+        isStunned = true;
+        Debug.Log("stunned");
+        agent.isStopped = true;
+        stunTimer = 3f;
     }
 }
