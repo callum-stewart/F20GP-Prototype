@@ -30,14 +30,12 @@ public class PlayerMovement : MonoBehaviour
 
         performGroundCheck();
         movePlayer();
+
         // only jump if player is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            Debug.Log("jumped");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
 
-        // only sprint if player is grounded
+        // only sprint if player is grounded and sprint isnt on cooldown
         if (Input.GetButton("Sprint") && isGrounded)
             isSprinting = true;
         else
