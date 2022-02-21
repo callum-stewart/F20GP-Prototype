@@ -1,11 +1,19 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class RatCatcherController : MonoBehaviour
 {
     const float stunTimerMax = 0.1f;
     const float baseSpeed = 6f;
     const float stunToleranceMax = 5f;
+    private Vector3[] spawnPoints = {
+        new Vector3(-11f, 1.15f, 7f),
+        new Vector3(-1f, 1.15f, 5f),
+        new Vector3(5.5f, 1.15f, 0f)
+    };
+
+    private int spawnIndex = 0;
 
     // reference to player (the chased)
     public PlayerMovement Player;
@@ -15,10 +23,6 @@ public class RatCatcherController : MonoBehaviour
 
     // location info of player
     private Vector3 _playerPosition;
-
-    // time between moving
-    private float movementCooldown = 3f;
-    private float movementTimer = 3f;
 
     // a set timer
     private float _timer;
@@ -56,6 +60,7 @@ public class RatCatcherController : MonoBehaviour
                     _changeState(RatCatcherState.chasing);
                 break;
             case (RatCatcherState.searching):
+                _cycleSpawn();
                 break;
             case (RatCatcherState.chasing):
                 _chasePlayer();
@@ -115,9 +120,11 @@ public class RatCatcherController : MonoBehaviour
     private void _chasePlayer()
     {
         // get player position
-        _playerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        agent.SetDestination(_getPlayerLocation());
+    }
 
-        agent.SetDestination(_playerPosition);
+    private Vector3 _getPlayerLocation(){
+        return new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
     }
 
     // set a timer, returns true when the timer is done
@@ -153,14 +160,11 @@ public class RatCatcherController : MonoBehaviour
         // decrement timers
         if (_timerLock)
             _timer -= tickLength;
-        movementTimer -= tickLength;
         stunTimer -= tickLength;
 
-        Debug.Log(stunTolerance + " , " + stunTimer);
         // recharge stun
         if (stunTolerance < stunToleranceMax && stunTimer < 0f)
         {
-            Debug.Log(stunTolerance);
             stunTolerance += stunChargeRate;
             stunTimer = stunTimerMax;
         }
@@ -170,6 +174,29 @@ public class RatCatcherController : MonoBehaviour
     /*** INACTIVE STATE FUNCTIONS ***/
 
     /*** SEARCHING STATE FUNCTIONS ***/
+
+    // cycle spawn points, look for player
+    private void _cycleSpawn() {
+        if(_playerInRange(2)) {
+            transform.position = spawnPoints[spawnIndex];
+            _changeState(RatCatcherState.chasing);    
+        } else {
+            spawnIndex++;
+            if(spawnIndex == spawnPoints.Length)
+                spawnIndex = 0;     
+        }
+    }
+
+    // return distance to the player
+    private bool _playerInRange(double minDist) {
+        Vector3 currentLocation = _getPlayerLocation();
+        double distance = Math.Sqrt((agent.transform.position.x - currentLocation.x) 
+            + (agent.transform.position.y - currentLocation.y)
+            + (agent.transform.position.z - currentLocation.z));
+
+        Debug.Log("distance: " + distance + "Min: " + minDist);
+        return (distance <= minDist);
+    }
 
     /*** CHASING STATE FUNCTIONS ***/
 

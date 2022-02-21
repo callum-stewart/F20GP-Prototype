@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // monitor frame drops
-        if((1.0f / Time.deltaTime) < 60)
-            Debug.Log(1.0f / Time.deltaTime);
+        // if((1.0f / Time.deltaTime) < 60)
+        //     Debug.Log(1.0f / Time.deltaTime);
 
         performGroundCheck();
         movePlayer();
