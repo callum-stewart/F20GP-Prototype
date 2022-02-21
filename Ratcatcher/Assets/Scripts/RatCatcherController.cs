@@ -4,6 +4,8 @@ using System.Collections;
 public class RatCatcherController : MonoBehaviour
 {
     const float stunTimerMax = 0.1f;
+    const float baseSpeed = 6f;
+    const float stunToleranceMax = 5f;
 
     // reference to player (the chased)
     public PlayerMovement Player;
@@ -22,9 +24,9 @@ public class RatCatcherController : MonoBehaviour
     private float _timer;
     private bool _timerLock;    // true when timer engaged
 
-    private float stunTolerance = 5f;
+    private float stunTolerance = stunToleranceMax;
     private float stunTimer = stunTimerMax;
-    private float stunChargeRate = 0.1f;
+    private float stunChargeRate = stunToleranceMax / 50;
     
     // states for the enemy
     public enum RatCatcherState {
@@ -39,7 +41,7 @@ public class RatCatcherController : MonoBehaviour
 
     private void Start()
     {
-        agent.speed = 6f;
+        changeSpeed(3.5f);
     }
 
     // Update is called once per frame
@@ -60,18 +62,29 @@ public class RatCatcherController : MonoBehaviour
                 break;
             case (RatCatcherState.stunned):
                 bool timerLock = _setTimer(3f);
-                stunChargeRate = 0.5f;
-                if (timerLock && stunTolerance >= 5f)
+                stunChargeRate = 0.25f;
+                if (timerLock && stunTolerance >= stunToleranceMax)
                     recovered();
                 else if (timerLock)
                     _changeState(RatCatcherState.agitated);
                 break;
             case (RatCatcherState.agitated):
+                _chasePlayer();
                 Debug.Log("pissed off");
+                Debug.Log(agent.speed);
                 break;
             case (RatCatcherState.recovering):
                 break;
         }
+    }
+
+    /*** STATE AGNOSTIC FUNCTIONS ***/
+
+    private void changeSpeed(float newSpeed)
+    {
+        agent.speed = newSpeed;
+        agent.angularSpeed = newSpeed * 60;
+        agent.acceleration = newSpeed * 4;
     }
 
     private void _changeState(RatCatcherState newState)
@@ -87,22 +100,38 @@ public class RatCatcherController : MonoBehaviour
                 agent.isStopped = true;
                 break;
             case (RatCatcherState.agitated):
+                agent.isStopped = false;
                 stunChargeRate = 0.1f;
+                changeSpeed(baseSpeed * 2);
                 break;
             default:
                 break;
         }
-
         // change state
         _currentState = newState;
     }
 
+    // moves in direction of the player
     private void _chasePlayer()
     {
         // get player position
         _playerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
 
         agent.SetDestination(_playerPosition);
+    }
+
+    // set a timer, returns true when the timer is done
+    private bool _setTimer(float duration)
+    {
+        if (!_timerLock)
+        {
+            _timer = duration;
+            _timerLock = true;
+        }
+        else if (_timer < 0f)
+            _timerLock = false;
+
+        return !_timerLock;
     }
 
     // registering a stun hit, called in FlashlightControl.cs stun()
@@ -116,61 +145,45 @@ public class RatCatcherController : MonoBehaviour
             _changeState(RatCatcherState.stunned);
     }
 
-    // when the player successfully stuns the rat catcher
-    public void stunned() 
-    {
-        Debug.Log("StunTol: " + stunTolerance);
-
- /*       if (_currentStun == -99)
-            _currentStun = stunTolerance;
-
-        // monitor for excessive flashing
-        if (_currentStun - stunTolerance > 1f)
-            _changeState(RatCatcherState.agitated);
-
-        _currentStun = stunTolerance;*/
-    }
-
-    // set a timer, returns true when the timer is done
-    private bool _setTimer(float duration)
-    {
-        if (!_timerLock)
-        {
-            _timer = duration;
-            _timerLock = true;
-        } else if (_timer < 0f)
-            _timerLock = false;
-
-        return !_timerLock;
-    }
-
     // ticks all time based variables
     private void _tick()
     {
         float tickLength = Time.deltaTime;
 
         // decrement timers
-        if(_timerLock)
+        if (_timerLock)
             _timer -= tickLength;
         movementTimer -= tickLength;
         stunTimer -= tickLength;
 
         Debug.Log(stunTolerance + " , " + stunTimer);
         // recharge stun
-        if (stunTolerance < 5f && stunTimer < 0f)
+        if (stunTolerance < stunToleranceMax && stunTimer < 0f)
         {
             Debug.Log(stunTolerance);
             stunTolerance += stunChargeRate;
             stunTimer = stunTimerMax;
         }
-            
+
     }
+
+    /*** INACTIVE STATE FUNCTIONS ***/
+
+    /*** SEARCHING STATE FUNCTIONS ***/
+
+    /*** CHASING STATE FUNCTIONS ***/
+
+    /*** STUNNED STATE FUNCTIONS ***/
 
     // currently changes state, will do more when recovering state implemented
     private void recovered()
     {
-        stunTolerance = 5f;
+        stunTolerance = stunToleranceMax;
         stunChargeRate = 0.01f;
         _changeState(RatCatcherState.chasing);
     }
+
+    /*** AGITATED STATE FUNCTIONS ***/
+
+    /*** RECOVERING STATE FUNCTIONS ***/
 }
