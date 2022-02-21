@@ -35,6 +35,7 @@ public class FlashlightControl : MonoBehaviour
 
     void stun()
     {
+        Debug.Log("attempt Stun");
         // create a raycast object originating from the player, moving in the direction they are facing
         RaycastHit hit;
         if (Physics.Raycast(playerView.transform.position, playerView.transform.forward, out hit, range))
@@ -44,7 +45,10 @@ public class FlashlightControl : MonoBehaviour
             // if the hit component is the rat catcher, call stunHit
             RatCatcherController ratCatcher = hit.transform.GetComponent<RatCatcherController>();
             if (ratCatcher != null)
+            {                
                 ratCatcher.stunHit();
+            }
+                
 
         }
     }
