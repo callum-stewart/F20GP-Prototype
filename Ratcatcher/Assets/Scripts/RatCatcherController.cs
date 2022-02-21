@@ -3,6 +3,8 @@ using System.Collections;
 
 public class RatCatcherController : MonoBehaviour
 {
+    const float stunTimerMax = 0.1f;
+
     // reference to player (the chased)
     public PlayerMovement Player;
 
@@ -13,15 +15,16 @@ public class RatCatcherController : MonoBehaviour
     private Vector3 _playerPosition;
 
     // time between moving
-    public float movementCooldown = 3f;
-    public float movementTimer = 3f;
+    private float movementCooldown = 3f;
+    private float movementTimer = 3f;
 
     // a set timer
     private float _timer;
     private bool _timerLock;    // true when timer engaged
 
-    public float stunTolerance = 5f;
-    public float stunTimer = 0.25f;
+    private float stunTolerance = 5f;
+    private float stunTimer = stunTimerMax;
+    private float stunChargeRate = 0.1f;
     
     // states for the enemy
     public enum RatCatcherState {
@@ -56,11 +59,15 @@ public class RatCatcherController : MonoBehaviour
                 _chasePlayer();
                 break;
             case (RatCatcherState.stunned):
-                stunned();
-                if (_setTimer(3f))
+                bool timerLock = _setTimer(3f);
+                stunChargeRate = 0.5f;
+                if (timerLock && stunTolerance >= 5f)
                     recovered();
+                else if (timerLock)
+                    _changeState(RatCatcherState.agitated);
                 break;
             case (RatCatcherState.agitated):
+                Debug.Log("pissed off");
                 break;
             case (RatCatcherState.recovering):
                 break;
@@ -69,17 +76,24 @@ public class RatCatcherController : MonoBehaviour
 
     private void _changeState(RatCatcherState newState)
     {
+        // prepare for new state
         switch (newState)
         {
+            case (RatCatcherState.chasing):
+                agent.isStopped = false;
+                break;
             case (RatCatcherState.stunned):
                 _currentState = RatCatcherState.stunned;
-                stunTimer = 3f;
                 agent.isStopped = true;
+                break;
+            case (RatCatcherState.agitated):
+                stunChargeRate = 0.1f;
                 break;
             default:
                 break;
         }
 
+        // change state
         _currentState = newState;
     }
 
@@ -94,7 +108,6 @@ public class RatCatcherController : MonoBehaviour
     // registering a stun hit, called in FlashlightControl.cs stun()
     public void stunHit()
     {
-        Debug.Log("stun hit: " + stunTolerance);
         // used to tell how close to a stun
         stunTolerance -= 1f;
 
@@ -106,19 +119,21 @@ public class RatCatcherController : MonoBehaviour
     // when the player successfully stuns the rat catcher
     public void stunned() 
     {
-        float currentStun = stunTolerance;
+        Debug.Log("StunTol: " + stunTolerance);
+
+ /*       if (_currentStun == -99)
+            _currentStun = stunTolerance;
 
         // monitor for excessive flashing
-        if (currentStun - stunTolerance > 3f)
+        if (_currentStun - stunTolerance > 1f)
             _changeState(RatCatcherState.agitated);
-        
+
+        _currentStun = stunTolerance;*/
     }
 
     // set a timer, returns true when the timer is done
     private bool _setTimer(float duration)
     {
-        Debug.Log(_timer);
-
         if (!_timerLock)
         {
             _timer = duration;
@@ -140,11 +155,13 @@ public class RatCatcherController : MonoBehaviour
         movementTimer -= tickLength;
         stunTimer -= tickLength;
 
+        Debug.Log(stunTolerance + " , " + stunTimer);
         // recharge stun
-        if(stunTolerance < 5f && stunTimer < 0f)
+        if (stunTolerance < 5f && stunTimer < 0f)
         {
-            stunTolerance += 0.01f;
-            stunTimer = 0.25f;
+            Debug.Log(stunTolerance);
+            stunTolerance += stunChargeRate;
+            stunTimer = stunTimerMax;
         }
             
     }
@@ -152,7 +169,8 @@ public class RatCatcherController : MonoBehaviour
     // currently changes state, will do more when recovering state implemented
     private void recovered()
     {
+        stunTolerance = 5f;
+        stunChargeRate = 0.01f;
         _changeState(RatCatcherState.chasing);
-        agent.isStopped = false;
     }
 }
