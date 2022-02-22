@@ -99,6 +99,11 @@ public class RatCatcherController : MonoBehaviour
 
     /*** STATE AGNOSTIC FUNCTIONS ***/
 
+    private void OnTriggerEnter(Collider other)
+    {
+        FindObjectOfType<GameManager>().GameOver();
+    }
+
     private void changeSpeed(float newSpeed)
     {
         agent.speed = newSpeed;
@@ -244,10 +249,8 @@ public class RatCatcherController : MonoBehaviour
     // set destination for a path
     private void _setDestination()
     {
-        Debug.Log(spawnPoints[spawnIndex]);
         agent.SetDestination(spawnPoints[spawnIndex]);
         spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
-        Debug.Log(spawnIndex);
     }
 
     /*** CHASING STATE FUNCTIONS ***/
