@@ -10,8 +10,7 @@ public class LightSwitch : Interactable
 
     private void Awake()
     {
-        isOn = true;
-        changeLights();
+        isOn = false;
     }
 
     // Update is called once per frame
