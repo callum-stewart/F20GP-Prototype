@@ -191,11 +191,16 @@ public class RatCatcherController : MonoBehaviour
     // patrol to new destination
     private void _patrol()
     {
+        // if player within range, start chasing
+        if (_playerInRange(2))
+            _changeState(RatCatcherState.chasing);
+
+        // if not already on way to point or close to
+        // finishing path, set new destination
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
         {
             _setDestination();
         }
-            
     }
 
     // set destination for a path
