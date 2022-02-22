@@ -5,23 +5,19 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public string displayText;
+    protected bool interactive = false;
 
     // display the control text
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         FindObjectOfType<UserInterface>().setInfo(displayText, 10f);
-    }
-
-    // interaction
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetButtonDown("Interact"))
-            FindObjectOfType<AudioManager>().Play("Voice1");
+        interactive = true;
     }
 
     // close text
-    private void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
         FindObjectOfType<UserInterface>().setInfo("");
+        interactive = false;
     }
 }

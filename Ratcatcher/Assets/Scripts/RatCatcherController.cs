@@ -65,8 +65,7 @@ public class RatCatcherController : MonoBehaviour
         switch (_currentState)
         {
             case (RatCatcherState.inactive):
-                if (_setTimer(3f))
-                    _changeState(RatCatcherState.searching);
+                // do nothing
                 break;
             case (RatCatcherState.searching):
                 _patrol();
@@ -103,6 +102,11 @@ public class RatCatcherController : MonoBehaviour
     {
         setAudio("Scream", "Chase Music");
         FindObjectOfType<GameManager>().GameOver();
+    }
+
+    public void Activate()
+    {
+        _changeState(RatCatcherState.searching);
     }
 
     private void changeSpeed(float newSpeed)
