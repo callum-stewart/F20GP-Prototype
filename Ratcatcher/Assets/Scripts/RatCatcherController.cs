@@ -7,6 +7,8 @@ public class RatCatcherController : MonoBehaviour
     const float stunTimerMax = 0.1f;
     const float baseSpeed = 6f;
     const float stunToleranceMax = 5f;
+    const int searchRange = 5;
+    const int escapeRange = 5;
     private Vector3[] spawnPoints = {
         new Vector3(-10.5f, 1.15f, 11.5f),
         new Vector3(2f, 1.15f, 9.5f),
@@ -51,7 +53,7 @@ public class RatCatcherController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(_currentState); //debugging to tell which state
+        Debug.Log(_currentState); //debugging to tell which state
         _tick();
         switch (_currentState)
         {
@@ -66,7 +68,7 @@ public class RatCatcherController : MonoBehaviour
                 _chasePlayer();
                 break;
             case (RatCatcherState.stunned):
-                bool timerLock = _setTimer(3f);
+                bool timerLock = _setTimer(10f);
                 stunChargeRate = 0.25f;
                 if (timerLock && stunTolerance >= stunToleranceMax)
                     recovered();
@@ -103,6 +105,7 @@ public class RatCatcherController : MonoBehaviour
             case (RatCatcherState.stunned):
                 _currentState = RatCatcherState.stunned;
                 agent.isStopped = true;
+                agent.ResetPath();
                 break;
             case (RatCatcherState.agitated):
                 agent.isStopped = false;
@@ -121,10 +124,30 @@ public class RatCatcherController : MonoBehaviour
     {
         // get player position
         agent.SetDestination(_getPlayerLocation());
+
+        // check if player has escaped
+        if (_playerInRange(escapeRange))
+        {
+            _changeState(RatCatcherState.searching);
+        }
+            
     }
 
+    // return the players current position as Vector3
     private Vector3 _getPlayerLocation(){
         return new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+    }
+
+    // return distance to the player
+    private bool _playerInRange(float minDist)
+    {
+        Vector3 currentLocation = _getPlayerLocation();
+        Debug.Log("player: " + currentLocation);
+        Debug.Log("ratcatcher: " + agent.transform.position);
+        float distance = (agent.transform.position - currentLocation).magnitude;
+        Debug.Log("distance: " + distance);
+
+        return (distance <= minDist);
     }
 
     // set a timer, returns true when the timer is done
@@ -192,7 +215,7 @@ public class RatCatcherController : MonoBehaviour
     private void _patrol()
     {
         // if player within range, start chasing
-        if (_playerInRange(2))
+        if (_playerInRange(searchRange))
             _changeState(RatCatcherState.chasing);
 
         // if not already on way to point or close to
@@ -211,17 +234,6 @@ public class RatCatcherController : MonoBehaviour
         spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
     }
 
-    // return distance to the player
-    private bool _playerInRange(double minDist) {
-        Vector3 currentLocation = _getPlayerLocation();
-        double distance = Math.Sqrt((agent.transform.position.x - currentLocation.x) 
-            + (agent.transform.position.y - currentLocation.y)
-            + (agent.transform.position.z - currentLocation.z));
-
-        Debug.Log("distance: " + distance + "Min: " + minDist);
-        return (distance <= minDist);
-    }
-
     /*** CHASING STATE FUNCTIONS ***/
 
     /*** STUNNED STATE FUNCTIONS ***/
@@ -229,9 +241,10 @@ public class RatCatcherController : MonoBehaviour
     // currently changes state, will do more when recovering state implemented
     private void recovered()
     {
+        Debug.Log(spawnIndex);
         stunTolerance = stunToleranceMax;
         stunChargeRate = 0.01f;
-        _changeState(RatCatcherState.chasing);
+        _changeState(RatCatcherState.searching);
     }
 
     /*** AGITATED STATE FUNCTIONS ***/
