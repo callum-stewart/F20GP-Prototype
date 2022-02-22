@@ -3925,10 +3925,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1925068123}
   agent: {fileID: 1071044120}
-  movementCooldown: 1.5
-  movementTimer: 1.5
-  stunTolerance: 5
-  stunTimer: 1
 --- !u!195 &1071044120
 NavMeshAgent:
   m_ObjectHideFlags: 0

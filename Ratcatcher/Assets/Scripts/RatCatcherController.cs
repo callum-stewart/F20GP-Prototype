@@ -8,8 +8,8 @@ public class RatCatcherController : MonoBehaviour
     const float baseSpeed = 6f;
     const float stunToleranceMax = 5f;
     private Vector3[] spawnPoints = {
-        new Vector3(-11f, 1.15f, 7f),
-        new Vector3(-1f, 1.15f, 5f),
+        new Vector3(-10.5f, 1.15f, 11.5f),
+        new Vector3(2f, 1.15f, 9.5f),
         new Vector3(5.5f, 1.15f, 0f)
     };
 
@@ -57,10 +57,10 @@ public class RatCatcherController : MonoBehaviour
         {
             case (RatCatcherState.inactive):
                 if (_setTimer(3f))
-                    _changeState(RatCatcherState.chasing);
+                    _changeState(RatCatcherState.searching);
                 break;
             case (RatCatcherState.searching):
-                _cycleSpawn();
+                _patrol();
                 break;
             case (RatCatcherState.chasing):
                 _chasePlayer();
@@ -175,16 +175,35 @@ public class RatCatcherController : MonoBehaviour
 
     /*** SEARCHING STATE FUNCTIONS ***/
 
-    // cycle spawn points, look for player
+    // cycle spawn points, moving once one close to the player is found
     private void _cycleSpawn() {
-        if(_playerInRange(2)) {
-            transform.position = spawnPoints[spawnIndex];
+        transform.position = spawnPoints[spawnIndex];
+        // check that the player is range to be chased
+        if (_playerInRange(2)) {
+            // move to the correct spawn
             _changeState(RatCatcherState.chasing);    
         } else {
-            spawnIndex++;
-            if(spawnIndex == spawnPoints.Length)
-                spawnIndex = 0;     
+            // move to the next spawn to check
+            spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
         }
+    }
+
+    // patrol to new destination
+    private void _patrol()
+    {
+        if (!agent.pathPending && agent.remainingDistance < 0.1f)
+        {
+            _setDestination();
+        }
+            
+    }
+
+    // set destination for a path
+    private void _setDestination()
+    {
+        Debug.Log(spawnPoints[spawnIndex]);
+        agent.SetDestination(spawnPoints[spawnIndex]);
+        spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
     }
 
     // return distance to the player
