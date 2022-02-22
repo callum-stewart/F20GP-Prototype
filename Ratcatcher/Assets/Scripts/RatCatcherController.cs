@@ -121,6 +121,8 @@ public class RatCatcherController : MonoBehaviour
                 agent.speed = baseSpeed;
                 break;
             case (RatCatcherState.chasing):
+                FindObjectOfType<AudioManager>().Stop("Ambience");
+                FindObjectOfType<AudioManager>().Play("Chase Music");
                 agent.isStopped = false;
                 break;
             case (RatCatcherState.stunned):

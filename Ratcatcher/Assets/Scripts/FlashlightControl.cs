@@ -26,7 +26,7 @@ public class FlashlightControl : MonoBehaviour
         // set intensity dependant on if flash is on or not
         flashLight.intensity = (flashOn ? onIntensity : offIntensity);
         // play the click sound
-        clickSound.Play();
+        FindObjectOfType<AudioManager>().Play("Flashlight");
 
         // check for hits with raycast
         if (flashOn)
