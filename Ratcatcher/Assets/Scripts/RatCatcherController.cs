@@ -7,8 +7,8 @@ public class RatCatcherController : MonoBehaviour
     const float stunTimerMax = 0.1f;
     const float baseSpeed = 6f;
     const float stunToleranceMax = 5f;
-    const int searchRange = 5;
-    const int escapeRange = 5;
+    const int searchRange = 10;
+    const int escapeRange = 15;
     private Vector3[] spawnPoints = {
         new Vector3(5.5f, 1.15f, 0f),    // Reception
         new Vector3(9.5f, 1.15f, 18.5f), // Offices
@@ -117,12 +117,12 @@ public class RatCatcherController : MonoBehaviour
         switch (newState)
         {
             case (RatCatcherState.searching):
+                setAudio("Ambience", "Chase Music");
                 Animator.SetTrigger("searching");
                 agent.speed = baseSpeed;
                 break;
             case (RatCatcherState.chasing):
-                FindObjectOfType<AudioManager>().Stop("Ambience");
-                FindObjectOfType<AudioManager>().Play("Chase Music");
+                setAudio("Chase Music", "Ambience");
                 agent.isStopped = false;
                 break;
             case (RatCatcherState.stunned):
@@ -151,7 +151,7 @@ public class RatCatcherController : MonoBehaviour
         agent.SetDestination(_getPlayerLocation());
 
         // check if player has escaped
-        if (_playerInRange(escapeRange))
+        if (!_playerInRange(escapeRange))
         {
             _changeState(RatCatcherState.searching);
         }
@@ -170,6 +170,16 @@ public class RatCatcherController : MonoBehaviour
         float distance = (agent.transform.position - currentLocation).magnitude;
 
         return (distance <= minDist);
+    }
+
+    private void setAudio(string sound, string oldSound = "")
+    {
+        AudioManager aM = FindObjectOfType<AudioManager>();
+
+        if (oldSound != "")
+            aM.Stop(oldSound);
+
+        aM.Play(sound);
     }
 
     // set a timer, returns true when the timer is done
