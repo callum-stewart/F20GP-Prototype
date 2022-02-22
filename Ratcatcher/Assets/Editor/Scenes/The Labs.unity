@@ -42271,8 +42271,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6057128448663594453, guid: 968fd329af66a884d9270ac654500580, type: 3}
+      propertyPath: m_SpotAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057128448663594453, guid: 968fd329af66a884d9270ac654500580, type: 3}
       propertyPath: m_Lightmapping
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6057128448663594453, guid: 968fd329af66a884d9270ac654500580, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6057128448663594453, guid: 968fd329af66a884d9270ac654500580, type: 3}
       propertyPath: m_Shadows.m_Bias
