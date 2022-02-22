@@ -5,7 +5,7 @@ using System;
 public class RatCatcherController : MonoBehaviour
 {
     const float stunTimerMax = 0.1f;
-    const float baseSpeed = 24f;
+    const float baseSpeed = 6f;
     const float stunToleranceMax = 5f;
     const int searchRange = 5;
     const int escapeRange = 5;
@@ -25,11 +25,11 @@ public class RatCatcherController : MonoBehaviour
     // reference to player (the chased)
     public PlayerMovement Player;
 
+    // reference to animator
+    public Animator Animator;
+
     // the navmesh agent
     public UnityEngine.AI.NavMeshAgent agent;
-
-    // location info of player
-    private Vector3 _playerPosition;
 
     // a set timer
     private float _timer;
@@ -38,6 +38,7 @@ public class RatCatcherController : MonoBehaviour
     private float stunTolerance = stunToleranceMax;
     private float stunTimer = stunTimerMax;
     private float stunChargeRate = stunToleranceMax / 50;
+    private bool stunImmune = false;
     
     // states for the enemy
     public enum RatCatcherState {
@@ -53,6 +54,7 @@ public class RatCatcherController : MonoBehaviour
     private void Start()
     {
         changeSpeed(baseSpeed);
+        Animator.Play("Z_idle", -1, 0);
     }
 
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class RatCatcherController : MonoBehaviour
                 _chasePlayer();
                 break;
             case (RatCatcherState.stunned):
-                bool timerLock = _setTimer(10f);
+                bool timerLock = _setTimer(3f);
                 stunChargeRate = 0.25f;
                 if (timerLock && stunTolerance >= stunToleranceMax)
                     recovered();
@@ -81,11 +83,16 @@ public class RatCatcherController : MonoBehaviour
                     _changeState(RatCatcherState.agitated);
                 break;
             case (RatCatcherState.agitated):
+                stunTolerance = 100f;
+                if (_setTimer(10f))
+                    _changeState(RatCatcherState.searching);
                 _chasePlayer();
                 //Debug.Log("pissed off");
                 //Debug.Log(agent.speed);
                 break;
             case (RatCatcherState.recovering):
+                agent.Warp(spawnPoints[spawnIndex]);
+                _changeState(RatCatcherState.inactive);
                 break;
         }
     }
@@ -104,15 +111,21 @@ public class RatCatcherController : MonoBehaviour
         // prepare for new state
         switch (newState)
         {
+            case (RatCatcherState.searching):
+                Animator.SetTrigger("searching");
+                agent.speed = baseSpeed;
+                break;
             case (RatCatcherState.chasing):
                 agent.isStopped = false;
                 break;
             case (RatCatcherState.stunned):
+                Animator.SetTrigger("stunned");
                 _currentState = RatCatcherState.stunned;
                 agent.isStopped = true;
                 agent.ResetPath();
                 break;
             case (RatCatcherState.agitated):
+                Animator.SetTrigger("searching");
                 agent.isStopped = false;
                 stunChargeRate = 0.1f;
                 changeSpeed(baseSpeed * 2);
@@ -173,7 +186,7 @@ public class RatCatcherController : MonoBehaviour
         stunTolerance -= 1f;
 
         // transition to stun
-        if (stunTolerance < 0f)
+        if (stunTolerance < 0f && !stunImmune)
             _changeState(RatCatcherState.stunned);
     }
 
@@ -246,7 +259,7 @@ public class RatCatcherController : MonoBehaviour
     {
         stunTolerance = stunToleranceMax;
         stunChargeRate = 0.01f;
-        _changeState(RatCatcherState.searching);
+        _changeState(RatCatcherState.recovering);
     }
 
     /*** AGITATED STATE FUNCTIONS ***/
