@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7114208448640380021}
+  - component: {fileID: 4273621902033441937}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &4273621902033441937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427186042809330758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d86375bff90344a89d1cf508499351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPath: []
 --- !u!1 &8537233473198868361
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +58,6 @@ GameObject:
   - component: {fileID: 2031282893985140923}
   - component: {fileID: 7545466571848727661}
   - component: {fileID: 1081074154973850724}
-  - component: {fileID: 645650036623170030}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -151,16 +164,3 @@ NavMeshAgent:
   m_BaseOffset: 1.0000002
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &645650036623170030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8537233473198868361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d86375bff90344a89d1cf508499351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPath: []

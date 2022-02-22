@@ -13,18 +13,24 @@ public class RatNestController : MonoBehaviour
     {
         for(int i = 0; i < maxRat; i++)
         {
-            createRat();
+            GameObject newRat = Instantiate(ratPrefab, spawnPoint, ratPrefab.transform.rotation);
+            rats.Add(newRat);
+
+            Debug.Log(newRat.GetComponent<RatController>());
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rats.Count);
+        
     }
 
     void createRat()
     {
-        rats.Add(Instantiate(ratPrefab, spawnPoint, ratPrefab.transform.rotation));
+        GameObject newRat = Instantiate(ratPrefab, spawnPoint, ratPrefab.transform.rotation);
+        
+        //newRat.GetComponent<RatController>().patrolPath = 
+        rats.Add(newRat);
     }
 }
