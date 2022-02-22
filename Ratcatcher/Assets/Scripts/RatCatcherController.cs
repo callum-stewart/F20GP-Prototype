@@ -5,14 +5,19 @@ using System;
 public class RatCatcherController : MonoBehaviour
 {
     const float stunTimerMax = 0.1f;
-    const float baseSpeed = 6f;
+    const float baseSpeed = 24f;
     const float stunToleranceMax = 5f;
     const int searchRange = 5;
     const int escapeRange = 5;
     private Vector3[] spawnPoints = {
-        new Vector3(-10.5f, 1.15f, 11.5f),
-        new Vector3(2f, 1.15f, 9.5f),
-        new Vector3(5.5f, 1.15f, 0f)
+        new Vector3(5.5f, 1.15f, 0f),    // Reception
+        new Vector3(9.5f, 1.15f, 18.5f), // Offices
+        new Vector3(9.5f, 1.15f, 31.5f), // Offices 2nd
+        new Vector3(18f, 1.15f, 37.5f),  // Security
+        new Vector3(5.5f, 1.15f, 38.5f), // Holding
+        new Vector3(-8f, 1.15f, 46f),    // Delivery
+        new Vector3(16f, -4f, 69.5f),    // Basement
+        new Vector3(-14.5f, -4f, 53f),    // Head Office
     };
 
     private int spawnIndex = 0;
@@ -47,13 +52,13 @@ public class RatCatcherController : MonoBehaviour
 
     private void Start()
     {
-        changeSpeed(3.5f);
+        changeSpeed(baseSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_currentState); //debugging to tell which state
+        //Debug.Log(_currentState); //debugging to tell which state
         _tick();
         switch (_currentState)
         {
@@ -77,8 +82,8 @@ public class RatCatcherController : MonoBehaviour
                 break;
             case (RatCatcherState.agitated):
                 _chasePlayer();
-                Debug.Log("pissed off");
-                Debug.Log(agent.speed);
+                //Debug.Log("pissed off");
+                //Debug.Log(agent.speed);
                 break;
             case (RatCatcherState.recovering):
                 break;
@@ -142,10 +147,7 @@ public class RatCatcherController : MonoBehaviour
     private bool _playerInRange(float minDist)
     {
         Vector3 currentLocation = _getPlayerLocation();
-        Debug.Log("player: " + currentLocation);
-        Debug.Log("ratcatcher: " + agent.transform.position);
         float distance = (agent.transform.position - currentLocation).magnitude;
-        Debug.Log("distance: " + distance);
 
         return (distance <= minDist);
     }
@@ -232,6 +234,7 @@ public class RatCatcherController : MonoBehaviour
         Debug.Log(spawnPoints[spawnIndex]);
         agent.SetDestination(spawnPoints[spawnIndex]);
         spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
+        Debug.Log(spawnIndex);
     }
 
     /*** CHASING STATE FUNCTIONS ***/
@@ -241,7 +244,6 @@ public class RatCatcherController : MonoBehaviour
     // currently changes state, will do more when recovering state implemented
     private void recovered()
     {
-        Debug.Log(spawnIndex);
         stunTolerance = stunToleranceMax;
         stunChargeRate = 0.01f;
         _changeState(RatCatcherState.searching);
