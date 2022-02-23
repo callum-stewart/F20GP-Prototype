@@ -67,7 +67,9 @@ public class Rat : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
         {
+            
             Vector3 eh = Nest.getInstruction(isLeader);
+            Debug.Log(eh);
             agent.SetDestination(eh);
         }
 

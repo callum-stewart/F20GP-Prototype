@@ -8,15 +8,15 @@ public class RatNest : MonoBehaviour
     Rat leader;
 
     int maxRat = 12;
-    Vector3 spawnPoint = new Vector3(-2.5f, 0.1f, -1.5f);
+    Vector3 spawnPoint = new Vector3(-2.5f, .1f, -1.5f);
     private Vector3[] roamingPoints = {
-        new Vector3(5.5f, 1.15f, 0f),    // Reception
-        new Vector3(9.5f, 1.15f, 18.5f), // Offices
-        new Vector3(9.5f, 1.15f, 31.5f), // Offices 2nd
-        new Vector3(18f, 1.15f, 37.5f),  // Security
-        new Vector3(5.5f, 1.15f, 38.5f), // Holding
-        new Vector3(-8f, 1.15f, 46f),    // Delivery
-        new Vector3(-14.5f, 1.15f, 53f)    // Head Office
+        new Vector3(5.5f, .1f, 0f),    // Reception
+        new Vector3(9.5f, .1f, 18.5f), // Offices
+        new Vector3(9.5f, .1f, 31.5f), // Offices 2nd
+        new Vector3(18f, .1f, 37.5f),  // Security
+        new Vector3(5.5f, .1f, 38.5f), // Holding
+        new Vector3(-8f, .1f, 46f),    // Delivery
+        new Vector3(-14.5f, .1f, 53f)    // Head Office
     };
 
     private void Awake()
@@ -58,7 +58,6 @@ public class RatNest : MonoBehaviour
     private Vector3 generateRandomPoint()
     {
         int randomIndex = Random.Range(0, roamingPoints.Length);
-        Debug.Log(randomIndex);
         return roamingPoints[randomIndex];
     }
 }
