@@ -40,7 +40,7 @@ public class FlashlightControl : MonoBehaviour
         if (Physics.Raycast(playerView.transform.position, playerView.transform.forward, out hit, range))
         {
             // if the hit component is the rat catcher, call stunHit
-            RatCatcherController ratCatcher = hit.transform.GetComponent<RatCatcherController>();
+            RatCatcher ratCatcher = hit.transform.GetComponent<RatCatcher>();
             if (ratCatcher != null)
             {                
                 ratCatcher.stunHit();

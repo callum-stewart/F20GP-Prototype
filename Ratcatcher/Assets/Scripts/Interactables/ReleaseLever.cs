@@ -9,7 +9,7 @@ public class ReleaseLever : Interactable
         if (interactive && Input.GetButtonDown("Interact"))
         {
             FindObjectOfType<AudioManager>().Play("Voice1");
-            FindObjectOfType<RatCatcherController>().Activate();
+            FindObjectOfType<RatCatcher>().Activate();
         }
     }
 }

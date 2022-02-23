@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7114208448640380021}
   - component: {fileID: 4273621902033441937}
+  - component: {fileID: 3665957263790670150}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -44,7 +45,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d86375bff90344a89d1cf508499351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPath: []
+  agent: {fileID: 3665957263790670150}
+  isLeader: 0
+--- !u!195 &3665957263790670150
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427186042809330758}
+  m_Enabled: 1
+  m_AgentTypeID: -334000983
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8537233473198868361
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +81,6 @@ GameObject:
   - component: {fileID: 9054032120730962316}
   - component: {fileID: 2031282893985140923}
   - component: {fileID: 7545466571848727661}
-  - component: {fileID: 1081074154973850724}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -142,25 +165,3 @@ CapsuleCollider:
   m_Height: 2.0000005
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &1081074154973850724
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8537233473198868361}
-  m_Enabled: 1
-  m_AgentTypeID: -334000983
-  m_Radius: 0.5000001
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.0000005
-  m_BaseOffset: 1.0000002
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

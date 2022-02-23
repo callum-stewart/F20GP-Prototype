@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class RatCatcherController : MonoBehaviour
+public class RatCatcher : MonoBehaviour
 {
     const float stunTimerMax = 0.1f;
     const float baseSpeed = 6f;
@@ -17,7 +17,7 @@ public class RatCatcherController : MonoBehaviour
         new Vector3(5.5f, 1.15f, 38.5f), // Holding
         new Vector3(-8f, 1.15f, 46f),    // Delivery
         new Vector3(16f, -4f, 69.5f),    // Basement
-        new Vector3(-14.5f, -4f, 53f),    // Head Office
+        new Vector3(-14.5f, 1.15f, 53f),    // Head Office
     };
 
     private int spawnIndex = 0;
@@ -54,7 +54,7 @@ public class RatCatcherController : MonoBehaviour
     private void Start()
     {
         changeSpeed(baseSpeed);
-        Animator.Play("Z_idle", -1, 0);
+        Animator.Play("Z_idle", 0, 0);
     }
 
     // Update is called once per frame

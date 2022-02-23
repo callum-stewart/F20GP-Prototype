@@ -1,0 +1,489 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.9f1 (108be757e447) revision 1084391'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19043.1526; Version 2009; 64bit' Language: 'en' Physical Memory: 32686 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.9f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Kyle/Desktop/F20GP-Prototype/Ratcatcher
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52139
+Successfully changed project path to: C:/Users/Kyle/Desktop/F20GP-Prototype/Ratcatcher
+C:/Users/Kyle/Desktop/F20GP-Prototype/Ratcatcher
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 24.16 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.9f1 (108be757e447)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Kyle/Desktop/F20GP-Prototype/Ratcatcher/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 980 Ti (ID=0x17c8)
+    Vendor:   
+    VRAM:     6097 MB
+    Driver:   30.0.15.1123
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001424 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 25.10 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.810 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000544 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.675 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1515 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.4 MB.
+System memory in use after: 89.5 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1980.
+Total: 1.987300 ms (FindLiveObjects: 0.344300 ms CreateObjectMapping: 0.099100 ms MarkObjects: 1.484600 ms  DeleteObjects: 0.057600 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Height.tga
+  artifactKey: Guid(f68a7260db8541846af5c185f808c9cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Height.tga using Guid(f68a7260db8541846af5c185f808c9cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cca7aaa3f5bb7d05581e192c6db2335') in 0.066247 seconds
+  Import took 0.068780 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Occlusion.tga
+  artifactKey: Guid(4b393d670357e5c40b7b46119e1a434d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Occlusion.tga using Guid(4b393d670357e5c40b7b46119e1a434d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffe452f1fa5e9e79d92b9dd8abcd7c30') in 0.009928 seconds
+  Import took 0.013417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Specular.tga
+  artifactKey: Guid(7c5e45bc4528a8b45b84c331265a447d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Specular.tga using Guid(7c5e45bc4528a8b45b84c331265a447d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e7330667174354aa2c26ca092e7b5f2') in 0.013077 seconds
+  Import took 0.015354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000123 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Albedo.tga
+  artifactKey: Guid(4949684030d54a74198bde2b7fba6bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Albedo.tga using Guid(4949684030d54a74198bde2b7fba6bca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81bf34a80264815fd4c546b8ebb8cf93') in 0.014010 seconds
+  Import took 0.016250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000121 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Height.tga
+  artifactKey: Guid(0c0de257b6418e74288c9d5be1bd6e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Height.tga using Guid(0c0de257b6418e74288c9d5be1bd6e0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49052bc5d6bb302c6e2790a6b6ebf134') in 0.008870 seconds
+  Import took 0.011012 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Height.tga
+  artifactKey: Guid(b3e2832423ee44b4e99dce90b5d2f65d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Height.tga using Guid(b3e2832423ee44b4e99dce90b5d2f65d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0454fad3e883d5ba3d948474f41f7016') in 0.008513 seconds
+  Import took 0.010964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Specular.tga
+  artifactKey: Guid(95fe0ce30e82fa445ae3176ddb4521d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Specular.tga using Guid(95fe0ce30e82fa445ae3176ddb4521d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3a125a119bc41727ba60c291ff09013') in 0.008758 seconds
+  Import took 0.010868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000125 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Normal.tga
+  artifactKey: Guid(c2f9f95f0d968bc4d8632bca7570c73a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Normal.tga using Guid(c2f9f95f0d968bc4d8632bca7570c73a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '509ea291f1a189eaa1a5a521bfb51ea1') in 0.026538 seconds
+  Import took 0.028401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000135 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Albedo.tga
+  artifactKey: Guid(aea8120f170f7434885b18f27cdfe8b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Cinder_Block_White_Painted_Cracked_Albedo.tga using Guid(aea8120f170f7434885b18f27cdfe8b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8dc56a5c462db8c251f36a4c3798f80') in 0.011493 seconds
+  Import took 0.013544 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Normal.tga
+  artifactKey: Guid(182d1c6b4e1d9b845997ca9e1ff67c7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Normal.tga using Guid(182d1c6b4e1d9b845997ca9e1ff67c7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5d9e9afc75830333a242ade2af40094') in 0.015360 seconds
+  Import took 0.017373 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Occlusion.tga
+  artifactKey: Guid(c12f6bb2af446e142a378513dcb92f79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Occlusion.tga using Guid(c12f6bb2af446e142a378513dcb92f79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80dc30ead186fb5300b1f12082678062') in 0.012833 seconds
+  Import took 0.014854 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Specular.tga
+  artifactKey: Guid(5f4af0cfe8e110e469592dfa7045d5b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Pattern_Painted_White_Specular.tga using Guid(5f4af0cfe8e110e469592dfa7045d5b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68fabf8afdbf86917b04584bcd2caebe') in 0.014172 seconds
+  Import took 0.016485 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Albedo.tga
+  artifactKey: Guid(1443b7937d804114582346e03d62d4c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Albedo.tga using Guid(1443b7937d804114582346e03d62d4c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9486a9b9671ad03cc06469f3e33d729f') in 0.009272 seconds
+  Import took 0.011697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Occlusion.tga
+  artifactKey: Guid(5241c69ed60177248addb10920d214b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Occlusion.tga using Guid(5241c69ed60177248addb10920d214b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '662d6df7f3d4dc758c4c8d2d6e28f52a') in 0.008037 seconds
+  Import took 0.010534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Normal.tga
+  artifactKey: Guid(202007c06bec57146a6a907e54f0df93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Concrete/Concrete_Weathered_Mossy_Normal.tga using Guid(202007c06bec57146a6a907e54f0df93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f1cf0e20371734edbe734c743bd5378') in 0.009607 seconds
+  Import took 0.011607 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000547 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.694 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.9 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1988.
+Total: 1.374900 ms (FindLiveObjects: 0.146200 ms CreateObjectMapping: 0.051100 ms MarkObjects: 1.131400 ms  DeleteObjects: 0.045500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000638 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.704 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.0 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1991.
+Total: 1.657400 ms (FindLiveObjects: 0.139800 ms CreateObjectMapping: 0.052800 ms MarkObjects: 1.398500 ms  DeleteObjects: 0.065500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000585 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.683 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.9 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1994.
+Total: 1.587100 ms (FindLiveObjects: 0.156300 ms CreateObjectMapping: 0.065700 ms MarkObjects: 1.299500 ms  DeleteObjects: 0.064800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000559 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.656 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.9 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1997.
+Total: 1.547100 ms (FindLiveObjects: 0.165700 ms CreateObjectMapping: 0.051300 ms MarkObjects: 1.271800 ms  DeleteObjects: 0.057600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000604 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.718 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.9 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2000.
+Total: 1.613800 ms (FindLiveObjects: 0.157000 ms CreateObjectMapping: 0.042000 ms MarkObjects: 1.353500 ms  DeleteObjects: 0.060100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000586 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.663 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.9 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2003.
+Total: 1.654300 ms (FindLiveObjects: 0.157600 ms CreateObjectMapping: 0.049000 ms MarkObjects: 1.380400 ms  DeleteObjects: 0.066500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 3546.645818 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Albedo.tga
+  artifactKey: Guid(b869eebd517a0ba4994a25d29294a127) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Albedo.tga using Guid(b869eebd517a0ba4994a25d29294a127) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64c42d3934fa74ace3a6df60f129896b') in 0.070127 seconds
+  Import took 0.072712 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Normal.tga
+  artifactKey: Guid(84bb5192d75882140910cbbdf1224027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Normal.tga using Guid(84bb5192d75882140910cbbdf1224027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31907efe55026a9caf31da52a7787a41') in 0.012595 seconds
+  Import took 0.014505 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Specular.tga
+  artifactKey: Guid(7cddc095b616c36488030bd1643856d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Specular.tga using Guid(7cddc095b616c36488030bd1643856d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97f79f9d630fef28842999da7929154f') in 0.008558 seconds
+  Import took 0.010651 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Specular.tga
+  artifactKey: Guid(db2498777e64e684ea95b2d1d7a3f9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Specular.tga using Guid(db2498777e64e684ea95b2d1d7a3f9c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05313e7c34d0714a06c4864d6e345db1') in 0.008758 seconds
+  Import took 0.011915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000138 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Occlusion.tga
+  artifactKey: Guid(1b57a0126737f474d9aca972ca79af9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Occlusion.tga using Guid(1b57a0126737f474d9aca972ca79af9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90d11c5bc04b06e2d8c6790b6a4f05c2') in 0.007945 seconds
+  Import took 0.010503 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000148 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Specular.tga
+  artifactKey: Guid(bc6498aa21b1f1646a8740676dd07155) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Specular.tga using Guid(bc6498aa21b1f1646a8740676dd07155) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3ca1360a3e7110aa6177d0926f8eb74') in 0.007969 seconds
+  Import took 0.009916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Height.tga
+  artifactKey: Guid(34ba64d7175e2d1419d82fbbba3c4f24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Height.tga using Guid(34ba64d7175e2d1419d82fbbba3c4f24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8832ad8f20ee86fcc358ca6797639e52') in 0.009747 seconds
+  Import took 0.011903 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Occlusion.tga
+  artifactKey: Guid(1d9e319b01fd4c2409059bf596fbd4fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Occlusion.tga using Guid(1d9e319b01fd4c2409059bf596fbd4fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '215684ab55b073c209ee7936e61ea057') in 0.008962 seconds
+  Import took 0.010939 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Normal.tga
+  artifactKey: Guid(f5e1c396dd22f614abd4ffb13e9965ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Normal.tga using Guid(f5e1c396dd22f614abd4ffb13e9965ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5630e7016f88a71b052eb4f1c28e1959') in 0.009097 seconds
+  Import took 0.011494 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000125 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Height.tga
+  artifactKey: Guid(d4a652a9cd91c144481eb4835a89bf88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Height.tga using Guid(d4a652a9cd91c144481eb4835a89bf88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9b006dc41499287db3926f76ba991e9') in 0.009686 seconds
+  Import took 0.011642 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Height.tga
+  artifactKey: Guid(aee3bd4bb2d27b64483eb04ab8fa416c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Height.tga using Guid(aee3bd4bb2d27b64483eb04ab8fa416c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39fff912b9eeff6bd26e27273b6feaf9') in 0.008764 seconds
+  Import took 0.010889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Albedo.tga
+  artifactKey: Guid(154443b153415e94ea8964583a4acafb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Albedo.tga using Guid(154443b153415e94ea8964583a4acafb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0926c08bed9bddcf47ba3e78175f061') in 0.008086 seconds
+  Import took 0.010398 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Occlusion.tga
+  artifactKey: Guid(ca413bad068fcd74e9d5db698c57a0d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_Small_Yellow_Painted_Cracks_Occlusion.tga using Guid(ca413bad068fcd74e9d5db698c57a0d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d5cfe98a10516116ca0f6faa9f9859a') in 0.010402 seconds
+  Import took 0.012406 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Albedo.tga
+  artifactKey: Guid(7635c5bac5cd68442a3b03d1f09aa38c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_cracked_01_Albedo.tga using Guid(7635c5bac5cd68442a3b03d1f09aa38c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2076ed73af9dd7346e0f2f03cefb20f3') in 0.008090 seconds
+  Import took 0.010259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000131 seconds.
+  path: Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Normal.tga
+  artifactKey: Guid(c517387798f163e40b4dcb24237900c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3rd-Party/JailBreak/MyRealMaterialsFree/Textures/Brick/Bricks_White_Painted_Cracked_02_Normal.tga using Guid(c517387798f163e40b4dcb24237900c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd29547ad82c29a80a79c85a9b9fce9b1') in 0.009929 seconds
+  Import took 0.012152 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000611 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.679 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.0 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2007.
+Total: 1.672500 ms (FindLiveObjects: 0.150000 ms CreateObjectMapping: 0.049300 ms MarkObjects: 1.410700 ms  DeleteObjects: 0.061700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000572 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.666 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.0 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2010.
+Total: 1.382700 ms (FindLiveObjects: 0.133400 ms CreateObjectMapping: 0.040300 ms MarkObjects: 1.150900 ms  DeleteObjects: 0.057200 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000587 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.623 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1474 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.0 MB.
+System memory in use after: 89.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2013.
+Total: 1.355900 ms (FindLiveObjects: 0.129000 ms CreateObjectMapping: 0.039200 ms MarkObjects: 1.136100 ms  DeleteObjects: 0.050900 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
