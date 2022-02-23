@@ -6,6 +6,7 @@ public class Rat : MonoBehaviour
 {
     // attributes
     float baseSpeed = 2f;
+    Vector3 Velocity;
 
     // the navmesh agent
     public UnityEngine.AI.NavMeshAgent agent;
@@ -39,12 +40,15 @@ public class Rat : MonoBehaviour
             case (RatState.newborn):
                 break;
             case (RatState.roaming):
-                if (isLeader)
+                if (_ratCatcherInRange())
+                    currState = RatState.chasing;
+                else if (isLeader)
                     StartCoroutine(roam());
                 else
                     StartCoroutine(follow());
                 break;
             case (RatState.chasing):
+                _ratCatcherInRange();
                 break;
             default:
                 break;
@@ -63,17 +67,24 @@ public class Rat : MonoBehaviour
         this.Nest = Nest;
     }
 
+    bool _ratCatcherInRange()
+    {
+        float distance = (agent.transform.position - Nest.RatCatcher.transform.position).magnitude;
+        if (distance < 10)
+            return agent.SetDestination(Nest.RatCatcher.transform.position);
+        else
+            return false;
+    }
+
+    Vector3 ratCatcherPosition()
+    {
+        return Nest.RatCatcher.transform.position;
+    }
+
     IEnumerator roam()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
-        {
-            
-            Vector3 eh = Nest.getInstruction(isLeader);
-            Debug.Log(eh);
-            agent.SetDestination(eh);
-        }
-
-        
+            agent.SetDestination(Nest.getInstruction(isLeader));
 
         yield return new WaitForSeconds(1f);
     }
@@ -82,5 +93,11 @@ public class Rat : MonoBehaviour
     {
         agent.SetDestination(Nest.getInstruction(isLeader));
         yield return new WaitForSeconds(.1f);
+    }
+
+    // rule 1 of boids, try to fly towards center of mass of boids
+    void cohesion()
+    {
+
     }
 }

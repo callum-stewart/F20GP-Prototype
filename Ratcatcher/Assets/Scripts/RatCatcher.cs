@@ -153,7 +153,7 @@ public class RatCatcher : MonoBehaviour
     private void _chasePlayer()
     {
         // get player position
-        agent.SetDestination(_getPlayerLocation());
+        agent.SetDestination(Player.transform.position);
 
         // check if player has escaped
         if (!_playerInRange(escapeRange))
@@ -163,15 +163,10 @@ public class RatCatcher : MonoBehaviour
             
     }
 
-    // return the players current position as Vector3
-    private Vector3 _getPlayerLocation(){
-        return new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
-    }
-
     // return distance to the player
     private bool _playerInRange(float minDist)
     {
-        Vector3 currentLocation = _getPlayerLocation();
+        Vector3 currentLocation = Player.transform.position;
         float distance = (agent.transform.position - currentLocation).magnitude;
 
         return (distance <= minDist);
