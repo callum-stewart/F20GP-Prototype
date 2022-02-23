@@ -55,6 +55,13 @@ public class Rat : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        // collision with ratcatcher
+        if (other.name == "Ratcatcher")
+            Nest.killRat(this);
+    }
+
     private void changeSpeed(float newSpeed)
     {
         agent.speed = newSpeed;

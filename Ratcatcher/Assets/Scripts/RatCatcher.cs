@@ -100,8 +100,11 @@ public class RatCatcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        setAudio("Scream", "Chase Music");
-        FindObjectOfType<GameManager>().GameOver();
+        if(other.name == "First Person Player")
+        {
+            setAudio("Scream", "Chase Music");
+            FindObjectOfType<GameManager>().GameOver();
+        }
     }
 
     public void Activate()

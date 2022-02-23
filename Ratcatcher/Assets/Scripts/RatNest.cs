@@ -5,6 +5,7 @@ public class RatNest : MonoBehaviour
 {
     public GameObject ratPrefab;
     public RatCatcher RatCatcher;
+    [SerializeField]
     List<Rat> rats = new List<Rat>();
     Rat leader;
 
@@ -51,13 +52,33 @@ public class RatNest : MonoBehaviour
         // set up the variables
         rat.setNest(this);
         if (rats.Count == 0)
-        {    // first rat created is the leader
+        {
+            // first rat created is the leader
             rat.isLeader = true;
             leader = rat;
         }
 
         // add to list
         rats.Add(rat);
+    }
+
+    public void killRat(Rat rat)
+    {
+        
+        // replace leader if required
+        if (rat.isLeader)
+        {
+            leader = rats.Find((rat) => !rat.isLeader);
+            leader.isLeader = true;
+        }
+
+
+        // get rid of rat from list and destroy it
+        rats.Remove(rat);
+        Object.Destroy(rat.gameObject);
+
+        // create a new rat!
+        createRat();
     }
 
     public Vector3 getInstruction(bool isLeader)
