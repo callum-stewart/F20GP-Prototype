@@ -6,15 +6,22 @@ public class PoweredDoor : MonoBehaviour
 {
     public GameObject doorLeft;
     public GameObject doorRight;
-    bool isOpen = true;
+    public bool zPerpendicular;
+    public bool startClosed;
+    
+    bool closed = false;
     bool closing = false;
-    Vector3 openDistance = new Vector3(.75f, 0f, 0f);
+    Vector3 openDistance;
     int doorMovements = 100;
     int closeProgress;
 
     private void Awake()
     {
         closeProgress = doorMovements;
+        openDistance = zPerpendicular ? new Vector3(.75f, 0f, 0f) : new Vector3(0f, 0f, .75f);
+
+        if (startClosed)
+            doorInteraction();
     }
 
     private void Update()
@@ -22,19 +29,22 @@ public class PoweredDoor : MonoBehaviour
         if (closing)
         {
             Vector3 closeInc = openDistance / doorMovements;
-            doorLeft.transform.position += isOpen ? closeInc : -closeInc;
-            doorRight.transform.position += isOpen ? -closeInc : closeInc;
+            doorLeft.transform.position += closed ? -closeInc : closeInc;
+            doorRight.transform.position += closed ? closeInc : -closeInc;
             closeProgress -= 1;
 
             if (closeProgress == 0)
+            {
                 closing = false;
+                closed = true;
+                closeProgress = doorMovements;
+            }   
         }
-
     }
 
     public void doorInteraction()
     {
-        isOpen = !isOpen;
+        closed = !closed;
         closing = true;
     }
 }
