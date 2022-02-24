@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.AI;
 
 public class RatCatcher : MonoBehaviour
 {
@@ -262,8 +263,26 @@ public class RatCatcher : MonoBehaviour
     // set destination for a path
     private void _setDestination()
     {
-        agent.SetDestination(spawnPoints[spawnIndex]);
-        spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
+        Vector3 destintion = generateRandomPoint();
+        NavMeshPath path = new NavMeshPath();
+
+        // if the path is not blocked, we use it
+        if (agent.CalculatePath(destintion, path))
+        {
+            agent.SetDestination(spawnPoints[spawnIndex]);
+            spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
+        } else
+        {
+            // path is blocked, find new one
+            _setDestination();
+        }
+        
+    }
+
+    private Vector3 generateRandomPoint()
+    {
+        int rIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
+        return spawnPoints[rIndex];
     }
 
     /*** CHASING STATE FUNCTIONS ***/
