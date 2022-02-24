@@ -32,18 +32,12 @@ public class RatNest : MonoBehaviour
 
         // set up the variables
         rat.setNest(this);
-        if (rats.Count == 0)
-        {
-            // first rat created is the leader
-            //rat.isLeader = true;
-            //leader = rat;
-        }
 
         // add to list
         rats.Add(rat);
     }
 
-    // gets the mass of this nest group through average position
+/*    // gets the mass of this nest group through average position
     // this is from the current rats POV
     public Vector3 getMass(Rat currentRat)
     {
@@ -56,8 +50,8 @@ public class RatNest : MonoBehaviour
         // count is used due to possibility of missing rats
         return sumOfPos / (rats.Count-1);
     }
-
-    public Vector3 getDistance(Rat currentRat)
+*/
+/*    public Vector3 getDistance(Rat currentRat)
     {
         // get the sum of all the positions, except current
         Vector3 distance = new Vector3();
@@ -82,18 +76,9 @@ public class RatNest : MonoBehaviour
 
         // count is used due to possibility of missing rats
         return sumOfVel / (rats.Count - 1);
-    }
+    }*/
     public void killRat(Rat rat)
     {
-        
-        /*// replace leader if required
-        if (rat.isLeader)
-        {
-            //leader = rats.Find((rat) => !rat.isLeader);
-            //leader.isLeader = true;
-        }*/
-
-
         // get rid of rat from list and destroy it
         rats.Remove(rat);
         Object.Destroy(rat.gameObject);

@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2162578756967031127}
-  - component: {fileID: 2162578756967031123}
-  - component: {fileID: 2162578756967031125}
   - component: {fileID: 2162578756967031124}
   m_Layer: 0
   m_Name: RatNest
@@ -33,27 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2162578756967031123
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2162578756967031126}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &2162578756967031125
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2162578756967031126}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2162578756967031124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,11 +46,4 @@ MonoBehaviour:
   ratPrefab: {fileID: 2427186042809330758, guid: 146a1199cb3077b45b4819f611029fd6, type: 3}
   RatCatcher: {fileID: 0}
   rats: []
-  roamingPoints:
-  - {x: 5.5, y: 0.15, z: 0}
-  - {x: 9.5, y: 0.15, z: 18.5}
-  - {x: 9.5, y: 0.15, z: 31.5}
-  - {x: 18, y: 0.15, z: 37.5}
-  - {x: 5.5, y: 0.15, z: 38.5}
-  - {x: -8, y: 0.15, z: 46}
-  - {x: -14.5, y: 0.15, z: 53}
+  points: []

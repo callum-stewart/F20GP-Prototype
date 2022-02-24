@@ -47,6 +47,7 @@ public class Rat : MonoBehaviour
                     coroutineActive = true;
                     StartCoroutine(roam());
                 }
+                
                 break;
             case (RatState.chasing):
                 if (!coroutineActive)
@@ -107,17 +108,18 @@ public class Rat : MonoBehaviour
     {
         // have a 1/10 chance of randomly setting the speed
         if (Random.Range(0, 1) < 0.1)
-            changeSpeed(agent.speed *= Random.Range(.75f, 1.25f));
+            changeSpeed(baseSpeed * Random.Range(.5f, 1.5f));
     }
 
     IEnumerator roam()
     {
         speedOffset();
         // if near the end of path, get new destination
-        if (!agent.pathPending && agent.remainingDistance < 0.1f)
+        if (!agent.pathPending && agent.remainingDistance < 1f)
             agent.SetDestination(Nest.getInstruction());
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+
         coroutineActive = false;
     }
 
@@ -125,7 +127,7 @@ public class Rat : MonoBehaviour
     {
         speedOffset();
         // if near the end of path, get new destination
-        if (!agent.pathPending && agent.remainingDistance < 0.1f)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
             agent.SetDestination(Nest.RatCatcher.transform.position);
 
         yield return new WaitForSeconds(.25f);
