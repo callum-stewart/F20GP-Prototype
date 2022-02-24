@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public static GameManager instance;
     public bool hasKeyCard = true;
-    public PoweredDoor EntranceDoor;
     public LightSwitch ReceptionLight;
 
     private Vector3[] points = {
@@ -76,6 +75,11 @@ public class GameManager : MonoBehaviour
             case 2:
                 gameOver();
                 break;
+            case 3:
+                winScreen();
+                break;
+            default:
+                break;
         }
     }
 
@@ -94,6 +98,8 @@ public class GameManager : MonoBehaviour
     // play button pressed
     private void theLabs()
     {
+        ReceptionLight = GameObject.Find("Reception Light Switch").GetComponent<LightSwitch>();
+
         for (int i = 0; i < points.Length - 4; i++)
         {
             // create the nest object
@@ -111,10 +117,16 @@ public class GameManager : MonoBehaviour
         audioManager.Play("Scream");
     }
 
+    private void winScreen()
+    {
+        // unlock cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void checkWinCondition()
     {
-        if (EntranceDoor.closed && ReceptionLight.isOn)
-            Debug.Log("win");
+        if (ReceptionLight.isOn)
+            ChangeScene(3);
         else
             ChangeScene(2);
     }

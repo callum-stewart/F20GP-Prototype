@@ -21,7 +21,7 @@ public class PoweredDoor : MonoBehaviour
         openDistance = zPerpendicular ? new Vector3(.75f, 0f, 0f) : new Vector3(0f, 0f, .75f);
 
         if (startClosed)
-            doorInteraction();
+            doorInteraction();  
     }
 
     private void Update()
@@ -45,8 +45,5 @@ public class PoweredDoor : MonoBehaviour
     {
         closed = !closed;
         closing = true;
-
-        if (this.gameObject.name == "Entrance Door")
-            FindObjectOfType<GameManager>().checkWinCondition();
     }
 }
