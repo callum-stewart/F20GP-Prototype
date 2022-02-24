@@ -6,12 +6,19 @@ public class Interactable : MonoBehaviour
 {
     public string displayText;
     protected bool interactive = false;
+    protected bool disabled = false;
 
     // display the control text
     public virtual void OnTriggerEnter(Collider other)
     {
-        FindObjectOfType<UserInterface>().setInfo(displayText, 10f);
-        interactive = true;
+        if (!disabled)
+        {
+            FindObjectOfType<UserInterface>().setInfo(displayText, 10f);
+            interactive = true;
+        }
+        else
+            FindObjectOfType<UserInterface>().setInfo("The Lever Broke", 10f);
+        
     }
 
     // close text

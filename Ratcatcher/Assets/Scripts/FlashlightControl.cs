@@ -39,15 +39,10 @@ public class FlashlightControl : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(playerView.transform.position, playerView.transform.forward, out hit, range))
         {
-            Debug.Log(hit.collider.name);
             // if the hit component is the rat catcher, call stunHit
             RatCatcher ratCatcher = hit.transform.GetComponent<RatCatcher>();
-            if (ratCatcher != null)
-            {                
+            if (ratCatcher != null)        
                 ratCatcher.stunHit();
-            }
-                
-
         }
     }
 }

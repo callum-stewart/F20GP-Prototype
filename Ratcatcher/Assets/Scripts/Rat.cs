@@ -70,11 +70,7 @@ public class Rat : MonoBehaviour
     {
         // collision with ratcatcher
         if (other.name == "Ratcatcher")
-        {
-            Debug.Log("catch");
             Nest.killRat(this);
-        }
-            
     }
 
     private void changeSpeed(float newSpeed)

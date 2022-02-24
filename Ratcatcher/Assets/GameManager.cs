@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public static GameManager instance;
     private Scene currentScene;
+    public bool hasKeyCard = false;
 
     private Vector3[] points = {
         new Vector3(5.5f, .15f, 0f),    // Reception

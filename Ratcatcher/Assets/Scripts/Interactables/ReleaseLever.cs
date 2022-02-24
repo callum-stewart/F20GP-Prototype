@@ -10,6 +10,9 @@ public class ReleaseLever : Interactable
         {
             FindObjectOfType<AudioManager>().Play("Voice1");
             FindObjectOfType<RatCatcher>().Activate();
+            FindObjectOfType<Generator>().generatorClicked();
+            FindObjectOfType<UserInterface>().setInfo("The Lever Broke", 10f);
+            this.disabled = true;
         }
     }
 }

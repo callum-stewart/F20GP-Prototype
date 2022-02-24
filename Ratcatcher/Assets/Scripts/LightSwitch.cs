@@ -5,13 +5,8 @@ using UnityEngine;
 public class LightSwitch : Interactable
 {
     public Light[] circuit;
-    bool powered;
-    bool isOn;
-
-    private void Awake()
-    {
-        isOn = false;
-    }
+    public bool powered = false;
+    bool isOn = false;
 
     // Update is called once per frame
     void Update()
@@ -19,22 +14,29 @@ public class LightSwitch : Interactable
         if (interactive && Input.GetButtonDown("Interact"))
         {
             FindObjectOfType<AudioManager>().Play("Flashlight");
-            changeLights();
+
+            if(powered)
+                changeLights();
         }
     }
 
     // switch on or off lights in circuit
     void changeLights()
     {
-        foreach(Light l in circuit)
-        {
-            if (isOn)
-                l.intensity = 0;
-            else
-                l.intensity = 1;
-
-        }
-
         isOn = !isOn;
+
+        // turn all the lights on or off
+        foreach (Light l in circuit)
+            l.intensity = isOn ? l.intensity = 1 : l.intensity = 0;
+    }
+
+    // generator has been clicked
+    public void generatorSwitch()
+    {
+        powered = !powered;
+        // if off, set isOn to true so it is switched in changeLights();
+        if (!powered)
+            isOn = true;
+        changeLights();
     }
 }

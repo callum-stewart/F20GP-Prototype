@@ -10,6 +10,7 @@ public class KeyCard : Interactable
         if (interactive && Input.GetButtonDown("Interact"))
         {
             FindObjectOfType<AudioManager>().Play("Voice3");
+            FindObjectOfType<GameManager>().hasKeyCard = true;
             Destroy(gameObject);
         }
     }
