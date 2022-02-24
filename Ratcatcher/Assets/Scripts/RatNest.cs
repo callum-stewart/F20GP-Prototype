@@ -7,7 +7,7 @@ public class RatNest : MonoBehaviour
     public RatCatcher RatCatcher;
     [SerializeField]
     List<Rat> rats = new List<Rat>();
-    int maxRat = 36;
+    int maxRat = 64;
     public Vector3[] points;
 
     private void Start()
@@ -32,6 +32,9 @@ public class RatNest : MonoBehaviour
 
         // set up the variables
         rat.setNest(this);
+
+        // set priority, this is kept to a small range to not be noticable
+        rat.agent.avoidancePriority = 50 + Random.Range(-5, 5);
 
         // add to list
         rats.Add(rat);

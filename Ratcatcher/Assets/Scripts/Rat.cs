@@ -96,7 +96,7 @@ public class Rat : MonoBehaviour
         float distance = (agent.transform.position - Nest.RatCatcher.transform.position).magnitude;
 
         // move if in distance
-        if (distance < 10)
+        if (distance < 5)
         {
             currState = RatState.chasing;
             agent.SetDestination(Nest.RatCatcher.transform.position);
@@ -111,9 +111,17 @@ public class Rat : MonoBehaviour
             changeSpeed(baseSpeed * Random.Range(.5f, 1.5f));
     }
 
+    void pathChange()
+    {
+        // have a 1/20 chance of randomly setting the speed
+        if (Random.Range(0, 1) <= 0.001)
+            agent.SetDestination(Nest.getInstruction());
+    }
+
     IEnumerator roam()
     {
         speedOffset();
+        //pathChange();
         // if near the end of path, get new destination
         if (!agent.pathPending && agent.remainingDistance < 1f)
             agent.SetDestination(Nest.getInstruction());
