@@ -6,7 +6,7 @@ public class Rat : MonoBehaviour
 {
     // attributes
     float baseSpeed = 2f;
-    Vector3 Velocity;
+    public Vector3 velocity;
 
     // the navmesh agent
     public UnityEngine.AI.NavMeshAgent agent;
@@ -45,7 +45,7 @@ public class Rat : MonoBehaviour
                 else if (isLeader)
                     StartCoroutine(roam());
                 else
-                    StartCoroutine(follow());
+                    StartCoroutine(boidBehaviour());
                 break;
             case (RatState.chasing):
                 _ratCatcherInRange();
@@ -83,11 +83,6 @@ public class Rat : MonoBehaviour
             return false;
     }
 
-    Vector3 ratCatcherPosition()
-    {
-        return Nest.RatCatcher.transform.position;
-    }
-
     IEnumerator roam()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
@@ -102,9 +97,59 @@ public class Rat : MonoBehaviour
         yield return new WaitForSeconds(.1f);
     }
 
-    // rule 1 of boids, try to fly towards center of mass of boids
-    void cohesion()
+    // move the boid in accordance to boid behaviour
+    IEnumerator boidBehaviour()
     {
+        // get the three required vectors
+        Vector3 v1, v2, v3;
+        v1 = cohesion();
+        v2 = seperation();
+        v3 = limitVelocity(alignment());
 
+        // get new position
+        velocity += v1 + v2 + v3;
+
+        if (!agent.pathPending && agent.remainingDistance < 0.1f)
+            agent.SetDestination(transform.position + velocity);
+
+
+        yield return new WaitForSeconds(1f);
+    }
+
+    // rule 1 of boids, try to fly towards center of mass of boids
+    Vector3 cohesion()
+    {
+        // get the average mass from nest
+        Vector3 cohesion = Nest.getMass(this);
+
+        // cohesion gives average position
+        // only want to move a small way there
+        return cohesion / 100;
+    }
+
+    // rule 2 of boids, maintain distance from other boids
+    Vector3 seperation()
+    {
+        // might be handled by navmesh, need to see
+        return Vector3.zero;
+    }
+
+    // rule 3 of boids, match velocity with other boids
+    Vector3 alignment()
+    {
+        // get the average velocity from nest
+        Vector3 alignment = Nest.getVelocity(this);
+
+        // add a small amount to the current velocity
+        return (alignment - velocity) / 10;
+    }
+
+    // limit the velocity to prevent it going too fast
+    Vector3 limitVelocity(Vector3 v)
+    {
+        if (v.magnitude > .001f)
+            v = (v / v.magnitude) * baseSpeed;
+
+        return v;
     }
 }

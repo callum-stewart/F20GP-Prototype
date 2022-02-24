@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public GameObject ratNestPrefab;
     private Vector3[] spawnPoints = {
         new Vector3(5.5f, .15f, 0f),    // Reception
+        new Vector3(-11f, .15f, 2f),    // Breakroom
         new Vector3(9.5f, .15f, 18.5f), // Offices
         new Vector3(9.5f, .15f, 31.5f), // Offices 2nd
         new Vector3(18f, .15f, 37.5f),  // Security

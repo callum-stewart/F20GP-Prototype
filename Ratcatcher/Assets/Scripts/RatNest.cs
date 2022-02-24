@@ -19,7 +19,7 @@ public class RatNest : MonoBehaviour
         new Vector3(-8f, .15f, 46f),    // Delivery
         new Vector3(-14.5f, .15f, 53f)    // Head Office
     };
-    private Vector3[] roamingPoints = {
+    public Vector3[] roamingPoints = {
         new Vector3(5.5f, .15f, 0f),    // Reception
         new Vector3(9.5f, .15f, 18.5f), // Offices
         new Vector3(9.5f, .15f, 31.5f), // Offices 2nd
@@ -62,6 +62,33 @@ public class RatNest : MonoBehaviour
         rats.Add(rat);
     }
 
+    // gets the mass of this nest group through average position
+    // this is from the current rats POV
+    public Vector3 getMass(Rat currentRat)
+    {
+        // get the sum of all the positions, except current
+        Vector3 sumOfPos = new Vector3();
+        foreach (Rat r in rats)
+            if(currentRat != r)
+                sumOfPos += r.transform.position;
+
+        // count is used due to possibility of missing rats
+        return sumOfPos / (rats.Count-1);
+    }
+
+    // get the average velocity of the nest
+    // this is from the current rats POV
+    public Vector3 getVelocity(Rat currentRat)
+    {
+        // get the sum of all the positions, except current
+        Vector3 sumOfVel = new Vector3();
+        foreach (Rat r in rats)
+            if (currentRat != r)
+                sumOfVel += r.velocity;
+
+        // count is used due to possibility of missing rats
+        return sumOfVel / (rats.Count - 1);
+    }
     public void killRat(Rat rat)
     {
         
