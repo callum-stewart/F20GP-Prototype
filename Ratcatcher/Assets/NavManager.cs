@@ -37,10 +37,7 @@ public class NavManager : MonoBehaviour
 
         // if the path is not blocked, we use it
         if (agent.CalculatePath(destination, path))
-        {
-            Debug.Log(destination);
             agent.SetDestination(destination);
-        }
             
         // path is blocked, find new one
         else
@@ -49,7 +46,6 @@ public class NavManager : MonoBehaviour
 
     public Vector3 generateRandomPoint(bool isSpawn = false)
     {
-
         int rIndex = isSpawn ? Random.Range(0, points.Length-4)
             : Random.Range(0, points.Length);
         return points[rIndex];

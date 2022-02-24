@@ -50,10 +50,7 @@ public class Rat : MonoBehaviour
                     break;
                 }
                 if (!coroutineActive)
-                {
-                    coroutineActive = true;
                     StartCoroutine(roam());
-                }
                 break;
             case (RatState.chasing):
                 chase();
@@ -107,6 +104,7 @@ public class Rat : MonoBehaviour
 
     IEnumerator roam()
     {
+        coroutineActive = true;
         speedOffset();
         pathChange();
         // if near the end of path, get new destination

@@ -17,15 +17,14 @@ public class RatCatcher : MonoBehaviour
 
     const float stunTimerMax = 0.1f;
     const float baseSpeed = 3f;
-    const float stunToleranceMax = 5f;
+    const float stunToleranceMax = 3f;
     const int searchRange = 10;
     const int escapeRange = 15;
 
     private int spawnIndex = 0;
 
     // a set timer
-    private float _timer;
-    private bool _timerLock;    // true when timer engaged
+    private bool coroutineActive = false;
 
     private float stunTolerance = stunToleranceMax;
     private float stunTimer = stunTimerMax;
@@ -66,22 +65,18 @@ public class RatCatcher : MonoBehaviour
                 _chasePlayer();
                 break;
             case (RatCatcherState.stunned):
-                bool timerLock = _setTimer(3f);
-                stunChargeRate = 0.25f;
-                if (timerLock && stunTolerance >= stunToleranceMax)
-                    recovered();
-                else if (timerLock)
-                    _changeState(RatCatcherState.agitated);
+                if (!coroutineActive)
+                    StartCoroutine(checkAgitated());
                 break;
             case (RatCatcherState.agitated):
                 stunTolerance = 100f;
-                if (_setTimer(10f))
-                    _changeState(RatCatcherState.searching);
+                if (!coroutineActive)
+                    StartCoroutine(isAgitated());
                 _chasePlayer();
                 break;
             case (RatCatcherState.recovering):
                 agent.Warp(navigator.generateRandomPoint());
-                _changeState(RatCatcherState.inactive);
+                _changeState(RatCatcherState.searching);
                 break;
         }
     }
@@ -92,6 +87,29 @@ public class RatCatcher : MonoBehaviour
     {
         if(other.name == "First Person Player")
             FindObjectOfType<GameManager>().ChangeScene(2);
+    }
+
+    IEnumerator checkAgitated()
+    {
+        coroutineActive = true;
+        stunChargeRate = 0.25f;
+        yield return new WaitForSeconds(3);
+
+        if (stunTolerance < stunToleranceMax)
+            _changeState(RatCatcherState.agitated);
+        else
+            _changeState(RatCatcherState.recovering);
+
+        stunChargeRate = 0.01f;
+        coroutineActive = false;
+    }
+
+    IEnumerator isAgitated()
+    {
+        coroutineActive = true;
+        yield return new WaitForSeconds(10);
+        _changeState(RatCatcherState.searching);
+        coroutineActive = false;
     }
 
     public void Activate()
@@ -130,8 +148,10 @@ public class RatCatcher : MonoBehaviour
             case (RatCatcherState.agitated):
                 Animator.SetTrigger("searching");
                 agent.isStopped = false;
-                stunChargeRate = 0.1f;
                 changeSpeed(baseSpeed * 2);
+                break;
+            case (RatCatcherState.recovering):
+                stunTolerance = stunToleranceMax;
                 break;
             default:
                 break;
@@ -170,20 +190,6 @@ public class RatCatcher : MonoBehaviour
         aM.Play(sound);
     }
 
-    // set a timer, returns true when the timer is done
-    private bool _setTimer(float duration)
-    {
-        if (!_timerLock)
-        {
-            _timer = duration;
-            _timerLock = true;
-        }
-        else if (_timer < 0f)
-            _timerLock = false;
-
-        return !_timerLock;
-    }
-
     // registering a stun hit, called in FlashlightControl.cs stun()
     public void stunHit()
     {
@@ -205,22 +211,10 @@ public class RatCatcher : MonoBehaviour
         navigator.moveTo(agent);
     }
 
-    // currently changes state, will do more when recovering state implemented
-    private void recovered()
-    {
-        stunTolerance = stunToleranceMax;
-        stunChargeRate = 0.01f;
-        _changeState(RatCatcherState.recovering);
-    }
-
     // ticks all time based variables
     private void _tick()
     {
         float tickLength = Time.deltaTime;
-
-        // decrement timers
-        if (_timerLock)
-            _timer -= tickLength;
         stunTimer -= tickLength;
 
         // recharge stun
