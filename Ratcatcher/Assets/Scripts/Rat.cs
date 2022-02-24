@@ -107,7 +107,7 @@ public class Rat : MonoBehaviour
     {
         // have a 1/10 chance of randomly setting the speed
         if (Random.Range(0, 1) < 0.1)
-            changeSpeed(agent.speed *= Random.Range(.5f, 1.5f));
+            changeSpeed(agent.speed *= Random.Range(.75f, 1.25f));
     }
 
     IEnumerator roam()

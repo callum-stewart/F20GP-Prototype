@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
             GameObject newRatRef = Instantiate(ratNestPrefab, points[i], ratNestPrefab.transform.rotation);
             RatNest nest = newRatRef.GetComponent<RatNest>();
             nest.points = points;
+
         }
         
     }
