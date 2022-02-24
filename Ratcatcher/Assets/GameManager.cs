@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         while (SceneManager.GetActiveScene().buildIndex != scene)
             yield return null;
 
-        if (SceneManager.GetActiveScene().buildIndex != scene)
+        if (SceneManager.GetActiveScene().buildIndex == scene)
             sceneSetup(scene);
     }
 
@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
             GameObject newRatRef = Instantiate(ratNestPrefab, points[i], ratNestPrefab.transform.rotation);
             RatNest nest = newRatRef.GetComponent<RatNest>();
             nest.points = points;
-
         }
     }
 
