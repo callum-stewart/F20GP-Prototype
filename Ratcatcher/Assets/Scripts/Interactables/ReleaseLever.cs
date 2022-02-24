@@ -12,6 +12,7 @@ public class ReleaseLever : Interactable
             FindObjectOfType<RatCatcher>().Activate();
             FindObjectOfType<Generator>().generatorClicked();
             FindObjectOfType<UserInterface>().setInfo("The Lever Broke", 10f);
+            FindObjectOfType<PoweredDoor>().doorInteraction();
             this.disabled = true;
         }
     }

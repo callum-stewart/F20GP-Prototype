@@ -11,6 +11,7 @@ public class KeyCard : Interactable
         {
             FindObjectOfType<AudioManager>().Play("Voice3");
             FindObjectOfType<GameManager>().hasKeyCard = true;
+            FindObjectOfType<UserInterface>().setInfo("");
             Destroy(gameObject);
         }
     }
