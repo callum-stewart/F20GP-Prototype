@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 125
+      value: 124.99998
       objectReference: {fileID: 0}
     - target: {fileID: 578376449398627443, guid: 6dc4cf4496348884d8ee27743ae38562, type: 3}
       propertyPath: m_LocalRotation.w
@@ -391,7 +391,6 @@ GameObject:
   - component: {fileID: 1558303662}
   - component: {fileID: 1558303661}
   - component: {fileID: 1558303660}
-  - component: {fileID: 1558303663}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -464,18 +463,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1558303663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558303659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee05e16e39c1964b8a16ad451552ffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1836069965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -568,20 +555,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3590235359565886827, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590235359565886827, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2101700403}
+      objectReference: {fileID: 9220694077394920027, guid: e12ece6d4121a0b419bb347d79216792, type: 3}
     - target: {fileID: 3590235359565886827, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToMainMenu
+      value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 3590235359565886827, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOver, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590235359565886827, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3590235359565886829, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
       propertyPath: m_Name
-      value: Play Button
+      value: Back Button
       objectReference: {fileID: 0}
     - target: {fileID: 3590235359791590833, guid: e1c2acd6ec7029447bcb08ecd1030b0e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -626,7 +621,6 @@ GameObject:
   - component: {fileID: 2101700401}
   - component: {fileID: 2101700400}
   - component: {fileID: 2101700399}
-  - component: {fileID: 2101700403}
   m_Layer: 5
   m_Name: Game Over
   m_TagString: Untagged
@@ -716,15 +710,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2101700403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101700398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55592b844167bc4ab37e459f739d6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

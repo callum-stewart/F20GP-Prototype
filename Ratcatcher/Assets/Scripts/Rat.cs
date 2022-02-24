@@ -14,8 +14,8 @@ public class Rat : MonoBehaviour
     // nest associated with this rat
     RatNest Nest;
 
-    // is this leader the boids
-    //public bool isLeader = false;
+    // range of rat catcher detection
+    float catcherRange = 10f;
 
     // is there a coroutine running
     bool coroutineActive = false;
@@ -41,20 +41,19 @@ public class Rat : MonoBehaviour
         switch (currState)
         {
             case (RatState.roaming):
-                _ratCatcherInRange();
+                if (_ratCatcherInRange())
+                {
+                    beginChase();
+                    break;
+                }
                 if (!coroutineActive)
                 {
                     coroutineActive = true;
                     StartCoroutine(roam());
                 }
-                
                 break;
             case (RatState.chasing):
-                if (!coroutineActive)
-                {
-                    coroutineActive = true;
-                    StartCoroutine(chase());
-                }
+                chase();
                 break;
             default:
                 break;
@@ -90,18 +89,13 @@ public class Rat : MonoBehaviour
         this.Nest = Nest;
     }
 
-    void _ratCatcherInRange()
+    bool _ratCatcherInRange()
     {
         // get distance to rat catcher
         float distance = (agent.transform.position - Nest.RatCatcher.transform.position).magnitude;
 
         // move if in distance
-        if (distance < 5)
-        {
-            currState = RatState.chasing;
-            agent.SetDestination(Nest.RatCatcher.transform.position);
-        }
-
+        return (distance < catcherRange);
     }
 
     void speedOffset()
@@ -131,15 +125,19 @@ public class Rat : MonoBehaviour
         coroutineActive = false;
     }
 
-    IEnumerator chase()
+    void beginChase()
     {
-        speedOffset();
-        // if near the end of path, get new destination
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-            agent.SetDestination(Nest.RatCatcher.transform.position);
+        changeSpeed(baseSpeed * 1.5f);
+        currState = RatState.chasing;
+        agent.SetDestination(Nest.RatCatcher.transform.position);
+    }
 
-        yield return new WaitForSeconds(.25f);
-        coroutineActive = false;
+    void chase()
+    {
+        if (_ratCatcherInRange())
+            agent.SetDestination(Nest.RatCatcher.transform.position);
+        else
+            currState = RatState.roaming;
     }
 
 }

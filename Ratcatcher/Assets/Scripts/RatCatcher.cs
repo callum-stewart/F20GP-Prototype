@@ -5,7 +5,7 @@ using System;
 public class RatCatcher : MonoBehaviour
 {
     const float stunTimerMax = 0.1f;
-    const float baseSpeed = 6f;
+    const float baseSpeed = 3f;
     const float stunToleranceMax = 5f;
     const int searchRange = 10;
     const int escapeRange = 15;
@@ -101,10 +101,7 @@ public class RatCatcher : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "First Person Player")
-        {
-            setAudio("Scream", "Chase Music");
-            FindObjectOfType<GameManager>().GameOver();
-        }
+            FindObjectOfType<GameManager>().ChangeScene(2);
     }
 
     public void Activate()
@@ -127,10 +124,11 @@ public class RatCatcher : MonoBehaviour
             case (RatCatcherState.searching):
                 setAudio("Ambience", "Chase Music");
                 Animator.SetTrigger("searching");
-                agent.speed = baseSpeed;
+                changeSpeed(baseSpeed);
                 break;
             case (RatCatcherState.chasing):
                 setAudio("Chase Music", "Ambience");
+                changeSpeed(baseSpeed * 2);
                 agent.isStopped = false;
                 break;
             case (RatCatcherState.stunned):

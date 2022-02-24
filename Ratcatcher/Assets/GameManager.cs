@@ -1,9 +1,14 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject ratNestPrefab;
+    public AudioManager audioManager;
+    public static GameManager instance;
+    private Scene currentScene;
+
     private Vector3[] points = {
         new Vector3(5.5f, .15f, 0f),    // Reception
         new Vector3(-11f, .15f, 2f),    // Breakroom
@@ -20,9 +25,74 @@ public class GameManager : MonoBehaviour
         new Vector3(19f, .15f, 38f)     // security ROAM ONLY
     };
 
-    public void Start()
+    // make sure only once game manager instance that exists
+    private void Awake()
     {
-        for(int i = 0; i < points.Length-4; i++)
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    // change the current scene
+    public void ChangeScene(int scene)
+    {
+        // attempt to load scene
+        SceneManager.LoadScene(scene);
+
+        // wait for the scene to be loaded
+        if (SceneManager.GetActiveScene().buildIndex != scene)
+            StartCoroutine(waitForSceneLoad(scene));
+    }
+
+    // waits for the appropraite scene to be loaded before set up is started
+    IEnumerator waitForSceneLoad(int scene)
+    {
+        while (SceneManager.GetActiveScene().buildIndex != scene)
+            yield return null;
+
+        if (SceneManager.GetActiveScene().buildIndex != scene)
+            sceneSetup(scene);
+    }
+
+    void sceneSetup(int scene)
+    {
+        //stopAllSound();
+        switch (scene)
+        {
+            case 0:
+                mainMenu();
+                break;
+            case 1:
+                theLabs();
+                break;
+            case 2:
+                gameOver();
+                break;
+        }
+    }
+
+    private void stopAllSound()
+    {
+        foreach (Sound s in audioManager.sounds)
+            audioManager.Stop(s.name);
+    }
+
+    private void mainMenu()
+    {
+        // unlock cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    // play button pressed
+    private void theLabs()
+    {
+        for (int i = 0; i < points.Length - 4; i++)
         {
             // create the nest object
             GameObject newRatRef = Instantiate(ratNestPrefab, points[i], ratNestPrefab.transform.rotation);
@@ -30,11 +100,13 @@ public class GameManager : MonoBehaviour
             nest.points = points;
 
         }
-        
     }
 
-    public void GameOver()
+    private void gameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // unlock cursor
+        Cursor.lockState = CursorLockMode.None;
+        // play sound effect
+        audioManager.Play("Scream");
     }
 }
