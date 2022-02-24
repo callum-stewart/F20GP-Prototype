@@ -7,9 +7,9 @@ public class RatNest : MonoBehaviour
     public RatCatcher RatCatcher;
     [SerializeField]
     List<Rat> rats = new List<Rat>();
-    Rat leader;
+    //Rat leader;
 
-    int maxRat = 30;
+    int maxRat = 36;
     private Vector3[] spawnPoints = {
         new Vector3(5.5f, .15f, 0f),    // Reception
         new Vector3(9.5f, .15f, 18.5f), // Offices
@@ -54,8 +54,8 @@ public class RatNest : MonoBehaviour
         if (rats.Count == 0)
         {
             // first rat created is the leader
-            rat.isLeader = true;
-            leader = rat;
+            //rat.isLeader = true;
+            //leader = rat;
         }
 
         // add to list
@@ -76,6 +76,19 @@ public class RatNest : MonoBehaviour
         return sumOfPos / (rats.Count-1);
     }
 
+    public Vector3 getDistance(Rat currentRat)
+    {
+        // get the sum of all the positions, except current
+        Vector3 distance = new Vector3();
+        foreach (Rat r in rats)
+            if (currentRat != r)
+                if ((r.transform.position - currentRat.transform.position).magnitude < 5)
+                    distance = distance - (r.transform.position - currentRat.transform.position);
+
+        // count is used due to possibility of missing rats
+        return distance;
+    }
+
     // get the average velocity of the nest
     // this is from the current rats POV
     public Vector3 getVelocity(Rat currentRat)
@@ -92,12 +105,12 @@ public class RatNest : MonoBehaviour
     public void killRat(Rat rat)
     {
         
-        // replace leader if required
+        /*// replace leader if required
         if (rat.isLeader)
         {
-            leader = rats.Find((rat) => !rat.isLeader);
-            leader.isLeader = true;
-        }
+            //leader = rats.Find((rat) => !rat.isLeader);
+            //leader.isLeader = true;
+        }*/
 
 
         // get rid of rat from list and destroy it
@@ -108,9 +121,9 @@ public class RatNest : MonoBehaviour
         createRat();
     }
 
-    public Vector3 getInstruction(bool isLeader)
+    public Vector3 getInstruction()
     {
-        return (isLeader ? generateRandomPoint(roamingPoints) : leader.transform.position);
+        return generateRandomPoint(roamingPoints);
     }
 
     private Vector3 generateRandomPoint(Vector3[] points)

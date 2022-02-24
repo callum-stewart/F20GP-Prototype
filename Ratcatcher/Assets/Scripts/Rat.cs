@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rat : MonoBehaviour
 {
     // attributes
-    float baseSpeed = 2f;
+    float baseSpeed = 1f;
     public Vector3 velocity;
 
     // the navmesh agent
@@ -15,7 +15,10 @@ public class Rat : MonoBehaviour
     RatNest Nest;
 
     // is this leader the boids
-    public bool isLeader = false;
+    //public bool isLeader = false;
+
+    // is there a coroutine running
+    bool coroutineActive = false;
 
     // states for the rats
     public enum RatState
@@ -37,29 +40,41 @@ public class Rat : MonoBehaviour
     {
         switch (currState)
         {
-            case (RatState.newborn):
-                break;
             case (RatState.roaming):
-                if (_ratCatcherInRange())
-                    currState = RatState.chasing;
-                else if (isLeader)
+                _ratCatcherInRange();
+                if (!coroutineActive)
+                {
+                    coroutineActive = true;
                     StartCoroutine(roam());
-                else
-                    StartCoroutine(boidBehaviour());
+                }
                 break;
             case (RatState.chasing):
-                _ratCatcherInRange();
+                if (!coroutineActive)
+                {
+                    coroutineActive = true;
+                    StartCoroutine(chase());
+                }
                 break;
             default:
                 break;
         }
     }
 
+  /*  private void createMarker(Vector3 v)
+    {
+        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = v;
+    }*/
+
     private void OnTriggerEnter(Collider other)
     {
         // collision with ratcatcher
         if (other.name == "Ratcatcher")
+        {
+            Debug.Log("catch");
             Nest.killRat(this);
+        }
+            
     }
 
     private void changeSpeed(float newSpeed)
@@ -74,82 +89,47 @@ public class Rat : MonoBehaviour
         this.Nest = Nest;
     }
 
-    bool _ratCatcherInRange()
+    void _ratCatcherInRange()
     {
+        // get distance to rat catcher
         float distance = (agent.transform.position - Nest.RatCatcher.transform.position).magnitude;
+
+        // move if in distance
         if (distance < 10)
-            return agent.SetDestination(Nest.RatCatcher.transform.position);
-        else
-            return false;
+        {
+            currState = RatState.chasing;
+            agent.SetDestination(Nest.RatCatcher.transform.position);
+        }
+
+    }
+
+    void speedOffset()
+    {
+        // have a 1/10 chance of randomly setting the speed
+        if (Random.Range(0, 1) < 0.1)
+            changeSpeed(agent.speed *= Random.Range(.5f, 1.5f));
     }
 
     IEnumerator roam()
     {
+        speedOffset();
+        // if near the end of path, get new destination
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
-            agent.SetDestination(Nest.getInstruction(isLeader));
+            agent.SetDestination(Nest.getInstruction());
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        coroutineActive = false;
     }
 
-    IEnumerator follow()
+    IEnumerator chase()
     {
-        agent.SetDestination(Nest.getInstruction(isLeader));
-        yield return new WaitForSeconds(.1f);
-    }
-
-    // move the boid in accordance to boid behaviour
-    IEnumerator boidBehaviour()
-    {
-        // get the three required vectors
-        Vector3 v1, v2, v3;
-        v1 = cohesion();
-        v2 = seperation();
-        v3 = limitVelocity(alignment());
-
-        // get new position
-        velocity += v1 + v2 + v3;
-
+        speedOffset();
+        // if near the end of path, get new destination
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
-            agent.SetDestination(transform.position + velocity);
+            agent.SetDestination(Nest.RatCatcher.transform.position);
 
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.25f);
+        coroutineActive = false;
     }
 
-    // rule 1 of boids, try to fly towards center of mass of boids
-    Vector3 cohesion()
-    {
-        // get the average mass from nest
-        Vector3 cohesion = Nest.getMass(this);
-
-        // cohesion gives average position
-        // only want to move a small way there
-        return cohesion / 100;
-    }
-
-    // rule 2 of boids, maintain distance from other boids
-    Vector3 seperation()
-    {
-        // might be handled by navmesh, need to see
-        return Vector3.zero;
-    }
-
-    // rule 3 of boids, match velocity with other boids
-    Vector3 alignment()
-    {
-        // get the average velocity from nest
-        Vector3 alignment = Nest.getVelocity(this);
-
-        // add a small amount to the current velocity
-        return (alignment - velocity) / 10;
-    }
-
-    // limit the velocity to prevent it going too fast
-    Vector3 limitVelocity(Vector3 v)
-    {
-        if (v.magnitude > .001f)
-            v = (v / v.magnitude) * baseSpeed;
-
-        return v;
-    }
 }
