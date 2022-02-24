@@ -7,29 +7,10 @@ public class RatNest : MonoBehaviour
     public RatCatcher RatCatcher;
     [SerializeField]
     List<Rat> rats = new List<Rat>();
-    //Rat leader;
-
     int maxRat = 36;
-    private Vector3[] spawnPoints = {
-        new Vector3(5.5f, .15f, 0f),    // Reception
-        new Vector3(9.5f, .15f, 18.5f), // Offices
-        new Vector3(9.5f, .15f, 31.5f), // Offices 2nd
-        new Vector3(18f, .15f, 37.5f),  // Security
-        new Vector3(5.5f, .15f, 38.5f), // Holding
-        new Vector3(-8f, .15f, 46f),    // Delivery
-        new Vector3(-14.5f, .15f, 53f)    // Head Office
-    };
-    public Vector3[] roamingPoints = {
-        new Vector3(5.5f, .15f, 0f),    // Reception
-        new Vector3(9.5f, .15f, 18.5f), // Offices
-        new Vector3(9.5f, .15f, 31.5f), // Offices 2nd
-        new Vector3(18f, .15f, 37.5f),  // Security
-        new Vector3(5.5f, .15f, 38.5f), // Holding
-        new Vector3(-8f, .15f, 46f),    // Delivery
-        new Vector3(-14.5f, .15f, 53f)    // Head Office
-    };
+    public Vector3[] points;
 
-    private void Awake()
+    private void Start()
     {
         RatCatcher = FindObjectOfType<RatCatcher>();
         for (int i = 0; i < maxRat; i++)
@@ -46,7 +27,7 @@ public class RatNest : MonoBehaviour
     void createRat()
     {
         // create the rat object
-        GameObject newRatRef = Instantiate(ratPrefab, generateRandomPoint(spawnPoints), ratPrefab.transform.rotation);
+        GameObject newRatRef = Instantiate(ratPrefab, generateRandomPoint(true), ratPrefab.transform.rotation);
         Rat rat = newRatRef.GetComponent<Rat>();
 
         // set up the variables
@@ -123,12 +104,13 @@ public class RatNest : MonoBehaviour
 
     public Vector3 getInstruction()
     {
-        return generateRandomPoint(roamingPoints);
+        return generateRandomPoint(false);
     }
 
-    private Vector3 generateRandomPoint(Vector3[] points)
+    
+    private Vector3 generateRandomPoint(bool isSpawn)
     {
-        int randomIndex = Random.Range(0, points.Length);
-        return points[randomIndex];
+        int rIndex = isSpawn ? Random.Range(0, points.Length - 4) : Random.Range(0, points.Length);
+        return points[rIndex];
     }
 }
