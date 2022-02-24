@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rat : MonoBehaviour
 {
     // attributes
-    float baseSpeed = 1f;
+    float baseSpeed = 2f;
     public Vector3 velocity;
 
     // the navmesh agent
