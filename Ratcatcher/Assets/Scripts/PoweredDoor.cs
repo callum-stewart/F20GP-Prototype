@@ -9,7 +9,7 @@ public class PoweredDoor : MonoBehaviour
     public bool zPerpendicular;
     public bool startClosed;
     
-    bool closed = false;
+    public bool closed = false;
     bool closing = false;
     Vector3 openDistance;
     int doorMovements = 100;
@@ -36,7 +36,6 @@ public class PoweredDoor : MonoBehaviour
             if (closeProgress == 0)
             {
                 closing = false;
-                closed = true;
                 closeProgress = doorMovements;
             }   
         }
@@ -46,5 +45,8 @@ public class PoweredDoor : MonoBehaviour
     {
         closed = !closed;
         closing = true;
+
+        if (this.gameObject.name == "Entrance Door")
+            FindObjectOfType<GameManager>().checkWinCondition();
     }
 }

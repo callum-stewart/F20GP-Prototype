@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
     public GameObject ratNestPrefab;
     public AudioManager audioManager;
     public static GameManager instance;
-    private Scene currentScene;
-    public bool hasKeyCard = false;
+    public bool hasKeyCard = true;
+    public PoweredDoor EntranceDoor;
+    public LightSwitch ReceptionLight;
 
     private Vector3[] points = {
         new Vector3(5.5f, .15f, 0f),    // Reception
@@ -108,5 +109,13 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         // play sound effect
         audioManager.Play("Scream");
+    }
+
+    public void checkWinCondition()
+    {
+        if (EntranceDoor.closed && ReceptionLight.isOn)
+            Debug.Log("win");
+        else
+            ChangeScene(2);
     }
 }

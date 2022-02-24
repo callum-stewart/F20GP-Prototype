@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public string displayText;
+    public string disableText = "";
     protected bool interactive = false;
     protected bool disabled = false;
 
@@ -17,7 +18,7 @@ public class Interactable : MonoBehaviour
             interactive = true;
         }
         else
-            FindObjectOfType<UserInterface>().setInfo("The Lever Broke", 10f);
+            FindObjectOfType<UserInterface>().setInfo(disableText, 10f);
         
     }
 

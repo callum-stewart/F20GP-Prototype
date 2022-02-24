@@ -6,7 +6,7 @@ public class LightSwitch : Interactable
 {
     public Light[] circuit;
     public bool powered = false;
-    bool isOn = false;
+    public bool isOn = false;
 
     // Update is called once per frame
     void Update()
