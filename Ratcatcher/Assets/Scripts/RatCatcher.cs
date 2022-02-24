@@ -5,32 +5,23 @@ using UnityEngine.AI;
 
 public class RatCatcher : MonoBehaviour
 {
+    // reference to player (the chased)
+    public PlayerMovement Player;
+    // reference to animator
+    public Animator Animator;
+    // the navmesh agent
+    public UnityEngine.AI.NavMeshAgent agent;
+
+    // the nav manager
+    NavManager navigator = new NavManager();
+
     const float stunTimerMax = 0.1f;
     const float baseSpeed = 3f;
     const float stunToleranceMax = 5f;
     const int searchRange = 10;
     const int escapeRange = 15;
-    private Vector3[] spawnPoints = {
-        new Vector3(5.5f, 1.15f, 0f),    // Reception
-        new Vector3(9.5f, 1.15f, 18.5f), // Offices
-        new Vector3(9.5f, 1.15f, 31.5f), // Offices 2nd
-        new Vector3(18f, 1.15f, 37.5f),  // Security
-        new Vector3(5.5f, 1.15f, 38.5f), // Holding
-        new Vector3(-8f, 1.15f, 46f),    // Delivery
-        new Vector3(16f, -4f, 69.5f),    // Basement
-        new Vector3(-14.5f, 1.15f, 53f),    // Head Office
-    };
 
     private int spawnIndex = 0;
-
-    // reference to player (the chased)
-    public PlayerMovement Player;
-
-    // reference to animator
-    public Animator Animator;
-
-    // the navmesh agent
-    public UnityEngine.AI.NavMeshAgent agent;
 
     // a set timer
     private float _timer;
@@ -87,11 +78,9 @@ public class RatCatcher : MonoBehaviour
                 if (_setTimer(10f))
                     _changeState(RatCatcherState.searching);
                 _chasePlayer();
-                //Debug.Log("pissed off");
-                //Debug.Log(agent.speed);
                 break;
             case (RatCatcherState.recovering):
-                agent.Warp(spawnPoints[spawnIndex]);
+                agent.Warp(navigator.generateRandomPoint());
                 _changeState(RatCatcherState.inactive);
                 break;
         }
@@ -159,10 +148,7 @@ public class RatCatcher : MonoBehaviour
 
         // check if player has escaped
         if (!_playerInRange(escapeRange))
-        {
-            _changeState(RatCatcherState.searching);
-        }
-            
+            _changeState(RatCatcherState.searching);      
     }
 
     // return distance to the player
@@ -209,6 +195,24 @@ public class RatCatcher : MonoBehaviour
             _changeState(RatCatcherState.stunned);
     }
 
+    // patrol to new destination
+    private void _patrol()
+    {
+        // if player within range, start chasing
+        if (_playerInRange(searchRange))
+            _changeState(RatCatcherState.chasing);
+
+        navigator.moveTo(agent);
+    }
+
+    // currently changes state, will do more when recovering state implemented
+    private void recovered()
+    {
+        stunTolerance = stunToleranceMax;
+        stunChargeRate = 0.01f;
+        _changeState(RatCatcherState.recovering);
+    }
+
     // ticks all time based variables
     private void _tick()
     {
@@ -227,77 +231,4 @@ public class RatCatcher : MonoBehaviour
         }
 
     }
-
-    /*** INACTIVE STATE FUNCTIONS ***/
-
-    /*** SEARCHING STATE FUNCTIONS ***/
-
-    // cycle spawn points, moving once one close to the player is found
-    private void _cycleSpawn() {
-        transform.position = spawnPoints[spawnIndex];
-        // check that the player is range to be chased
-        if (_playerInRange(2)) {
-            // move to the correct spawn
-            _changeState(RatCatcherState.chasing);    
-        } else {
-            // move to the next spawn to check
-            spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
-        }
-    }
-
-    // patrol to new destination
-    private void _patrol()
-    {
-        // if player within range, start chasing
-        if (_playerInRange(searchRange))
-            _changeState(RatCatcherState.chasing);
-
-        // if not already on way to point or close to
-        // finishing path, set new destination
-        if (!agent.pathPending && agent.remainingDistance < 0.1f)
-        {
-            _setDestination();
-        }
-    }
-
-    // set destination for a path
-    private void _setDestination()
-    {
-        Vector3 destintion = generateRandomPoint();
-        NavMeshPath path = new NavMeshPath();
-
-        // if the path is not blocked, we use it
-        if (agent.CalculatePath(destintion, path))
-        {
-            agent.SetDestination(spawnPoints[spawnIndex]);
-            spawnIndex = (spawnIndex + 1) % spawnPoints.Length;
-        } else
-        {
-            // path is blocked, find new one
-            _setDestination();
-        }
-        
-    }
-
-    private Vector3 generateRandomPoint()
-    {
-        int rIndex = UnityEngine.Random.Range(0, spawnPoints.Length);
-        return spawnPoints[rIndex];
-    }
-
-    /*** CHASING STATE FUNCTIONS ***/
-
-    /*** STUNNED STATE FUNCTIONS ***/
-
-    // currently changes state, will do more when recovering state implemented
-    private void recovered()
-    {
-        stunTolerance = stunToleranceMax;
-        stunChargeRate = 0.01f;
-        _changeState(RatCatcherState.recovering);
-    }
-
-    /*** AGITATED STATE FUNCTIONS ***/
-
-    /*** RECOVERING STATE FUNCTIONS ***/
 }

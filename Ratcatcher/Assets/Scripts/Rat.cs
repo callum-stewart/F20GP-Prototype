@@ -14,6 +14,9 @@ public class Rat : MonoBehaviour
     // nest associated with this rat
     RatNest Nest;
 
+    // a navigator for path finding
+    public NavManager navigator;
+
     // range of rat catcher detection
     float catcherRange = 10f;
 
@@ -60,12 +63,6 @@ public class Rat : MonoBehaviour
         }
     }
 
-  /*  private void createMarker(Vector3 v)
-    {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = v;
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
         // collision with ratcatcher
@@ -105,16 +102,15 @@ public class Rat : MonoBehaviour
     {
         // have a 1/20 chance of randomly setting the speed
         if (Random.Range(0, 1) <= 0.001)
-            agent.SetDestination(Nest.getInstruction());
+            navigator.moveTo(agent);
     }
 
     IEnumerator roam()
     {
         speedOffset();
-        //pathChange();
+        pathChange();
         // if near the end of path, get new destination
-        if (!agent.pathPending && agent.remainingDistance < 1f)
-            agent.SetDestination(Nest.getInstruction());
+        navigator.moveTo(agent);
 
         yield return new WaitForSeconds(1f);
 
