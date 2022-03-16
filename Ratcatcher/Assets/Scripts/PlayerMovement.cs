@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     
     public CharacterController controller;  // reference to the Character Controller object
@@ -19,26 +20,29 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool isSprinting;
 
+
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<NetworkIdentity>().hasAuthority)
+        {
+            performGroundCheck();
+            movePlayer();
 
-        performGroundCheck();
-        movePlayer();
+            // only jump if player is grounded
+            if (Input.GetButtonDown("Jump") && isGrounded)
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-        // only jump if player is grounded
-        if (Input.GetButtonDown("Jump") && isGrounded)
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            // only sprint if player is grounded and sprint isnt on cooldown
+            if (Input.GetButton("Sprint") && isGrounded)
+                isSprinting = true;
+            else
+                isSprinting = false;
 
-        // only sprint if player is grounded and sprint isnt on cooldown
-        if (Input.GetButton("Sprint") && isGrounded)
-            isSprinting = true;
-        else
-            isSprinting = false;
-
-        // due to the way gravity works, time.deltatime needs squared, so 2 multiplications
-        velocity.y += gravity * Time.deltaTime;     // only want to move on the y axis
-        controller.Move(velocity * Time.deltaTime);
+            // due to the way gravity works, time.deltatime needs squared, so 2 multiplications
+            velocity.y += gravity * Time.deltaTime;     // only want to move on the y axis
+            controller.Move(velocity * Time.deltaTime);
+        }
     }
 
     void movePlayer()

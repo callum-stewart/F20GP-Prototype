@@ -1,4 +1,5 @@
 using UnityEngine;
+using Mirror;
 
 public class FlashlightControl : MonoBehaviour
 {
@@ -16,8 +17,11 @@ public class FlashlightControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
-            setFlash();
+        if (transform.parent.parent.GetComponent<NetworkIdentity>().hasAuthority)
+        {
+            if (Input.GetButtonDown("Fire2"))
+                setFlash();
+        }
     }
 
     void setFlash()
