@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: Press E to Press Light Switch
+  disableText: 
   circuit: []
+  powered: 0
+  isOn: 0
 --- !u!1001 &6769087433785040829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,7 +108,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8769962491918011195, guid: 4dedecd94da715144ba56194616463bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dedecd94da715144ba56194616463bd, type: 3}
 --- !u!1 &7613539279926318236 stripped
 GameObject:

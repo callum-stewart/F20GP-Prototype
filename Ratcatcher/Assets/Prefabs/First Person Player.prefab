@@ -265,7 +265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2810759565061161162}
   - component: {fileID: 2810759565061161163}
-  - component: {fileID: 2810759565061161160}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -349,24 +348,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &2810759565061161160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2810759565061161165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef97f0d14e4b8646a44e90ad19b92ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashLight: {fileID: 2810759565061161163}
-  playerView: {fileID: 2810759564721930197}
-  onIntensity: 5
-  offIntensity: 0
-  range: 10
-  clickSound: {fileID: 0}
 --- !u!1 &2810759565769585418
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +362,7 @@ GameObject:
   - component: {fileID: 2810759565769585415}
   - component: {fileID: 2810759565769585414}
   - component: {fileID: -1443564161958587573}
+  - component: {fileID: 3059363268741497013}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -514,6 +496,26 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &3059363268741497013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810759565769585418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef97f0d14e4b8646a44e90ad19b92ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  flashLight: {fileID: 2810759565061161163}
+  playerView: {fileID: 2810759564721930197}
+  onIntensity: 5
+  offIntensity: 0
+  range: 10
+  clickSound: {fileID: 0}
 --- !u!1 &2810759566167947481
 GameObject:
   m_ObjectHideFlags: 0

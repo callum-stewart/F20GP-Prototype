@@ -24,6 +24,7 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        // only allow client to control their own player object
         if (GetComponent<NetworkIdentity>().hasAuthority)
         {
             performGroundCheck();

@@ -14,6 +14,7 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // only enable the camera for the clients player object
         if (transform.parent.GetComponent<NetworkIdentity>().hasAuthority)
             transform.GetChild(0).gameObject.SetActive(true);
         // prevent mouse movement
@@ -23,6 +24,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // only allow client to control their own player object
         if (transform.parent.GetComponent<NetworkIdentity>().hasAuthority)
         {
             // get the position of the mouse in the scene
