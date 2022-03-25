@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 2810759565769585414}
   - component: {fileID: -1443564161958587573}
   - component: {fileID: 3059363268741497013}
+  - component: {fileID: -8607299266885084498}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -516,6 +517,18 @@ MonoBehaviour:
   offIntensity: 0
   range: 10
   clickSound: {fileID: 0}
+--- !u!114 &-8607299266885084498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810759565769585418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d50343711bccf548977fee228502821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2810759566167947481
 GameObject:
   m_ObjectHideFlags: 0
