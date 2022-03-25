@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class RatCatcher : MonoBehaviour
 {
     // reference to player (the chased)
-    public PlayerMovement Player;
+    public ExterminatorController Player;
     // reference to animator
     public Animator Animator;
     // the navmesh agent

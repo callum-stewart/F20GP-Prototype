@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     
     public CharacterController controller;  // reference to the Character Controller object
-
+    public string playerName;
 
     public float speed = 2.5f;    // movement speed
     public float sprintSpeed = 6f;
