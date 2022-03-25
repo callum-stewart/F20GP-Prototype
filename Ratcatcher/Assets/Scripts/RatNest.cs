@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class RatNest : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class RatNest : MonoBehaviour
 
         // add to list
         rats.Add(rat);
+        NetworkServer.Spawn(newRatRef);
+        Debug.Log("rat spawnned");
     }
 
     public void killRat(Rat rat)

@@ -2,11 +2,12 @@ using UnityEngine;
 using System.Collections;
 using System;
 using UnityEngine.AI;
+using Mirror;
 
-public class RatCatcher : MonoBehaviour
+public class RatCatcher : NetworkBehaviour
 {
-    // reference to player (the chased)
-    public PlayerMovement Player;
+    // list of players (the chased)
+    public GameObject[] Players;
     // reference to animator
     public Animator Animator;
     // the navmesh agent
@@ -164,20 +165,42 @@ public class RatCatcher : MonoBehaviour
     private void _chasePlayer()
     {
         // get player position
-        agent.SetDestination(Player.transform.position);
+        agent.SetDestination(FindNearestPlayer().transform.position);
 
         // check if player has escaped
-        if (!_playerInRange(escapeRange))
+        if (!_playerInRange(escapeRange, FindNearestPlayer()))
             _changeState(RatCatcherState.searching);      
     }
 
     // return distance to the player
-    private bool _playerInRange(float minDist)
+    private bool _playerInRange(float minDist, GameObject Player)
     {
+
         Vector3 currentLocation = Player.transform.position;
         float distance = (agent.transform.position - currentLocation).magnitude;
 
         return (distance <= minDist);
+    }
+
+    private void FindPlayers()
+    {
+        Players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    private GameObject FindNearestPlayer()
+    {
+        if (Players == null)
+            FindPlayers();
+        GameObject nearest = Players[0];
+        foreach (GameObject player in Players)
+        {
+            if (nearest == null)
+                nearest = player;
+            else
+                if ((agent.transform.position - player.transform.position).magnitude < (agent.transform.position - nearest.transform.position).magnitude)
+                nearest = player;
+        }
+        return nearest;
     }
 
     private void setAudio(string sound, string oldSound = "")
@@ -205,7 +228,7 @@ public class RatCatcher : MonoBehaviour
     private void _patrol()
     {
         // if player within range, start chasing
-        if (_playerInRange(searchRange))
+        if (_playerInRange(searchRange, FindNearestPlayer()))
             _changeState(RatCatcherState.chasing);
 
         navigator.moveTo(agent);

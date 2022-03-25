@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -830,7 +830,7 @@ MonoBehaviour:
   onlineScene: Assets/Editor/Scenes/The Labs.unity
   transport: {fileID: 1022980298}
   networkAddress: localhost
-  maxConnections: 100
+  maxConnections: 3
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 2810759565769585418, guid: 312d751e0f43ce9448c79aaa802f42e7, type: 3}
   autoCreatePlayer: 1
@@ -1194,6 +1194,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5353982631126686799, guid: e12ece6d4121a0b419bb347d79216792, type: 3}
+      propertyPath: sceneId
+      value: 426385039
+      objectReference: {fileID: 0}
     - target: {fileID: 9220694077394920025, guid: e12ece6d4121a0b419bb347d79216792, type: 3}
       propertyPath: m_Name
       value: GameManager

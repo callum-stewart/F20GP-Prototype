@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Rat : MonoBehaviour
+public class Rat : NetworkBehaviour
 {
     // attributes
     float baseSpeed = 2f;

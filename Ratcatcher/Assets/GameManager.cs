@@ -1,8 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Mirror;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     public GameObject ratNestPrefab;
     public AudioManager audioManager;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
 
     // change the current scene
     public void ChangeScene(int scene)
@@ -130,4 +132,5 @@ public class GameManager : MonoBehaviour
         else
             ChangeScene(2);
     }
+
 }
