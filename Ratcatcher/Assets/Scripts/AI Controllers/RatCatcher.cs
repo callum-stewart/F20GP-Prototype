@@ -8,6 +8,8 @@ public class RatCatcher : NetworkBehaviour
 {
     // list of players (the chased)
     public GameObject[] Players;
+    // reference to player (the chased)
+    public ExterminatorController Player;
     // reference to animator
     public Animator Animator;
     // the navmesh agent

@@ -670,6 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8728702345369326426}
   - component: {fileID: 8728702345369326427}
+  - component: {fileID: 2959635039096874138}
   m_Layer: 0
   m_Name: Powered Door
   m_TagString: Untagged
@@ -707,5 +708,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorLeft: {fileID: 8728702344212413918}
   doorRight: {fileID: 8728702344017487560}
-  closed: 0
   zPerpendicular: 1
+  startClosed: 0
+  closed: 0
+--- !u!65 &2959635039096874138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728702345369326421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0}

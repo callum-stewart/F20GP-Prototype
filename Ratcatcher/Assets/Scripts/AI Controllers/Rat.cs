@@ -66,7 +66,6 @@ public class Rat : NetworkBehaviour
         // collision with ratcatcher
         if (other.name == "Ratcatcher")
         {
-            Debug.Log("catch");
             Nest.killRat(this);
         }
             

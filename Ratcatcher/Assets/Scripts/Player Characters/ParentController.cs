@@ -6,7 +6,7 @@ public class PlayerMovement : NetworkBehaviour
 {
     
     public CharacterController controller;  // reference to the Character Controller object
-
+    public string playerName;
 
     public float speed = 2.5f;    // movement speed
     public float sprintSpeed = 6f;

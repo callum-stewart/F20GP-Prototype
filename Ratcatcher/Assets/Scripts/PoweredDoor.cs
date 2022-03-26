@@ -18,7 +18,7 @@ public class PoweredDoor : MonoBehaviour
     private void Awake()
     {
         closeProgress = doorMovements;
-        openDistance = zPerpendicular ? new Vector3(.75f, 0f, 0f) : new Vector3(0f, 0f, .75f);
+        openDistance = zPerpendicular ? new Vector3(.75f, 0f, 0f) : new Vector3(0f, 0f, -.75f);
 
         if (startClosed)
             doorInteraction();  
@@ -37,6 +37,7 @@ public class PoweredDoor : MonoBehaviour
             {
                 closing = false;
                 closeProgress = doorMovements;
+                Debug.Log("closed: " + closed);
             }   
         }
     }
@@ -45,5 +46,14 @@ public class PoweredDoor : MonoBehaviour
     {
         closed = !closed;
         closing = true;
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if(closed && /*!closing &&*/ Input.GetButtonDown("Interact"))
+        {
+            Debug.Log("hello");
+            doorInteraction();
+        }
     }
 }
