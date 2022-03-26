@@ -6,7 +6,8 @@ public class RatCatcherController : PlayerController
 {
     new float speed = 4f;
     float chargeTimer = 0f;
-    float attackRange = 3f;
+    float attackRange = 1f;
+    Vector3 heightOffset = new Vector3(0, 1, 0);
 
     private void Update()
     {
@@ -22,7 +23,7 @@ public class RatCatcherController : PlayerController
             Debug.Log(chargeTimer);
             base.speed = this.speed;
 
-            if (chargeTimer > 2f)
+            if (chargeTimer > 1f)
             {
                 Attack();
             }
@@ -33,19 +34,34 @@ public class RatCatcherController : PlayerController
 
     private void Attack()
     {
-        Debug.Log("swing");
+        // get the layer mask for the hitbox layer
+        //int layerMask = 1 << 3;
+
+        Debug.Log(this.transform.forward);
+        this.transform.position += this.transform.forward;
 
         // create a raycast object originating from the player, moving in the direction they are facing
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, attackRange))
+        if (Physics.SphereCast(this.transform.position + heightOffset, attackRange, this.transform.forward, out hit))
         {
+            Debug.Log(hit.collider.name);
             // report if a player is hit
             ExterminatorController exterm = hit.transform.GetComponent<ExterminatorController>();
             if (exterm != null)
             {
                 Debug.Log("Attack Landed");
+                exterm.Attacked();
             }
                 
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Debug.DrawLine(this.transform.position + heightOffset,
+            (this.transform.position + heightOffset) + this.transform.forward * attackRange);
+        Gizmos.DrawWireSphere((this.transform.position + heightOffset) * attackRange
+            , attackRange);
     }
 }
