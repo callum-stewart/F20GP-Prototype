@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     bool isSprinting;
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
 
         performGroundCheck();
