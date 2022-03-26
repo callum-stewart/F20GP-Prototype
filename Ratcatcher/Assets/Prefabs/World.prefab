@@ -736,7 +736,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911890604443463658}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -35118,6 +35118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac1f068550d51047adc955df460aadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   displayText: Press E to Pull Lever
   disableText: 
 --- !u!1 &1911890606028575041
@@ -37872,6 +37874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685b1c155e5228a4d91fb29dfbc42258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   displayText: Press E to Open Door
   disableText: 
   door: {fileID: 7181819639866566871}
@@ -37887,6 +37891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e889ac025ca15514c804f164ea3f3615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   displayText: Press  E to Power Generator
   disableText: 
 --- !u!114 &1911890605469264115
@@ -37901,6 +37907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9617e610938525b48b8c9ede12f34724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   displayText: Press E to Pickup Keycard
   disableText: 
 --- !u!114 &1911890605761064872
@@ -37915,6 +37923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685b1c155e5228a4d91fb29dfbc42258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   displayText: Press E to Open Door
   disableText: 
   door: {fileID: 1911890605568533075}

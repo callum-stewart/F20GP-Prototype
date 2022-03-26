@@ -15,7 +15,7 @@ public class RatNest : MonoBehaviour
     private void Start()
     {
         navigator = new NavManager();
-        RatCatcher = FindObjectOfType<RatCatcher>();
+        // RatCatcher = FindObjectOfType<RatCatcher>();
         for (int i = 0; i < maxRat; i++)
         {
             createRat();

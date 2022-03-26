@@ -10,6 +10,8 @@ public class GameManager : NetworkBehaviour
     public static GameManager instance;
     public bool hasKeyCard = true;
     public LightSwitch ReceptionLight;
+    RatCatcher catcher;
+    Scene scene;
 
     private Vector3[] points = {
         new Vector3(5.5f, .15f, 0f),    // Reception
@@ -98,16 +100,18 @@ public class GameManager : NetworkBehaviour
     }
 
     // play button pressed
-    private void theLabs()
+    public void theLabs()
     {
-        ReceptionLight = GameObject.Find("Reception Light Switch").GetComponent<LightSwitch>();
-
+        //ReceptionLight = GameObject.Find("Reception Light Switch").GetComponent<LightSwitch>();
+        catcher = GameObject.Find("Player and Agents").transform.GetChild(0).GetComponent<RatCatcher>();
         for (int i = 0; i < points.Length - 4; i++)
         {
             // create the nest object
             GameObject newRatRef = Instantiate(ratNestPrefab, points[i], ratNestPrefab.transform.rotation);
+            NetworkServer.Spawn(newRatRef);
             RatNest nest = newRatRef.GetComponent<RatNest>();
             nest.points = points;
+            nest.RatCatcher = catcher;
         }
     }
 

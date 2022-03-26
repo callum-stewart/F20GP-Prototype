@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Mirror;
 
 public class PlayerMovement : NetworkBehaviour
@@ -20,10 +21,20 @@ public class PlayerMovement : NetworkBehaviour
     bool isGrounded;
     bool isSprinting;
 
+    private void Start()
+    {
+        SceneManager.sceneLoaded += SceneChange;
+    }
+
+    private void SceneChange(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+    }
 
     // Update is called once per frame
     void Update()
     {
+         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
         // only allow client to control their own player object
         if (GetComponent<NetworkIdentity>().hasAuthority)
         {
@@ -68,4 +79,5 @@ public class PlayerMovement : NetworkBehaviour
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;   // 0f caused weird errors with not properly returning the surface, leaving a gap
     }
+
 }

@@ -86,7 +86,7 @@ public class RatCatcher : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "First Person Player")
+        if(other.tag == "Player")
             FindObjectOfType<GameManager>().ChangeScene(2);
     }
 
@@ -189,8 +189,7 @@ public class RatCatcher : NetworkBehaviour
 
     private GameObject FindNearestPlayer()
     {
-        if (Players == null)
-            FindPlayers();
+        FindPlayers();
         GameObject nearest = Players[0];
         foreach (GameObject player in Players)
         {
