@@ -10,7 +10,7 @@ public class LightSwitch : Interactable
     [SyncVar]
     public bool powered = false;
     [SyncVar]
-    public bool isOn = false;
+    public bool isOn = true;
 
     // Update is called once per frame
     void Update()

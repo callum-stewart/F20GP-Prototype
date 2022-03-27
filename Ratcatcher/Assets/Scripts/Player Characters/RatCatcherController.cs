@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class RatCatcherController : PlayerController
 {
@@ -11,48 +12,52 @@ public class RatCatcherController : PlayerController
 
     private void Update()
     {
-        base.Update();
-        if(Input.GetButton("Interact"))
+        if (GetComponent<NetworkIdentity>().hasAuthority)
         {
-            chargeTimer += Time.deltaTime;
-            base.speed = 2f;
-        }
-
-        if(Input.GetButtonUp("Interact"))
-        {
-            Debug.Log(chargeTimer);
-            base.speed = this.speed;
-
-            if (chargeTimer > 1f)
+            base.Update();
+            if (Input.GetButton("Interact"))
             {
-                Attack();
+                chargeTimer += Time.deltaTime;
+                base.speed = 2f;
             }
 
-            chargeTimer = 0f;
+            if (Input.GetButtonUp("Interact"))
+            {
+                Debug.Log(chargeTimer);
+                base.speed = this.speed;
+
+                if (chargeTimer > 1f)
+                {
+                    Attack();
+                }
+
+                chargeTimer = 0f;
+            }
         }
     }
 
+    [Command]
     private void Attack()
     {
         // get the layer mask for the hitbox layer
         //int layerMask = 1 << 3;
 
-        Debug.Log(this.transform.forward);
+        // Debug.Log(this.transform.forward);
         this.transform.position += this.transform.forward;
 
         // create a raycast object originating from the player, moving in the direction they are facing
         RaycastHit hit;
         if (Physics.SphereCast(this.transform.position + heightOffset, attackRange, this.transform.forward, out hit))
         {
-            Debug.Log(hit.collider.name);
+            // Debug.Log(hit.collider.name);
             // report if a player is hit
             ExterminatorController exterm = hit.transform.GetComponent<ExterminatorController>();
             if (exterm != null)
             {
-                Debug.Log("Attack Landed");
+                // Debug.Log("Attack Landed");
                 exterm.Attacked();
             }
-                
+
         }
     }
 

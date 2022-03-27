@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class ExterminatorController : PlayerController
 {
-    private int health = 2;
+    public int health = 2;
     private float rushVal = 7f;
 
     public void Attacked()
@@ -13,9 +14,15 @@ public class ExterminatorController : PlayerController
         Debug.Log("Player Health: " + health);
         if (health < 1)
         {
-            FindObjectOfType<GameManager>().ChangeScene(2);
+            RpcEndGame();
         }
         Rush();
+    }
+
+    [ClientRpc]
+    public void RpcEndGame()
+    {
+        FindObjectOfType<GameManager>().ChangeScene(2);
     }
 
     /**

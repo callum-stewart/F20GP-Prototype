@@ -807,7 +807,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1022980296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 615e6c6589cf9e54cad646b5a11e0529, type: 3}
+  m_Script: {fileID: 11500000, guid: be9f845f8a8371c499e2745a62d438e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -823,7 +823,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 2810759565769585418, guid: 312d751e0f43ce9448c79aaa802f42e7, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 7149090875749459660, guid: 33dfac0b1deccab40b6ad4973b7fabe8, type: 3}
   showRoomGUI: 1
   minPlayers: 1
   roomPlayerPrefab: {fileID: 5347066502038240879, guid: 09c86fb61497930438aad100fa5cd47d, type: 3}
@@ -832,6 +833,7 @@ MonoBehaviour:
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
+  PlayerPrefab2: {fileID: 7149090875749459660, guid: 33dfac0b1deccab40b6ad4973b7fabe8, type: 3}
 --- !u!4 &1022980300
 Transform:
   m_ObjectHideFlags: 0

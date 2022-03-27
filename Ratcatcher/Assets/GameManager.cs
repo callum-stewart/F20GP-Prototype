@@ -43,7 +43,6 @@ public class GameManager : NetworkBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
     // change the current scene
     public void ChangeScene(int scene)
     {

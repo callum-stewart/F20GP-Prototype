@@ -34,7 +34,7 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     protected void Update()
     {
-         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+         // SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
         // only allow client to control their own player object
         if (GetComponent<NetworkIdentity>().hasAuthority)
         {
