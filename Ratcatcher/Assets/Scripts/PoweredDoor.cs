@@ -50,7 +50,7 @@ public class PoweredDoor : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if(closed && /*!closing &&*/ Input.GetButtonDown("Interact"))
+        if(closed && !closing && Input.GetButtonDown("Interact"))
         {
             Debug.Log("hello");
             doorInteraction();
