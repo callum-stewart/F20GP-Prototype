@@ -7,7 +7,7 @@ public class CustomNetworkManager : NetworkRoomManager
 {
     public GameObject PlayerPrefab2;
     bool isRatCatcher = false;
-    Vector3 spawnpoint = new Vector3(0, 0, 0);
+    Vector3 spawnpoint = new Vector3(-10, 0, 25);
 
     public override GameObject OnRoomServerCreateGamePlayer(NetworkConnectionToClient conn, GameObject roomPlayer)
     {
