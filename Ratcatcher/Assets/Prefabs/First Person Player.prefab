@@ -358,13 +358,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2810759565769585419}
   - component: {fileID: 2810759565769585416}
-  - component: {fileID: 2810759565769585417}
   - component: {fileID: 2810759565769585415}
   - component: {fileID: 2810759565769585414}
   - component: {fileID: -1443564161958587573}
   - component: {fileID: 3059363268741497013}
   - component: {fileID: -8607299266885084498}
   - component: {fileID: 2702037514839975845}
+  - component: {fileID: -7640505064039062568}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Player
@@ -407,30 +407,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2810759565769585417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2810759565769585418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4dcd7a14436fa948a21a4ecc32b06e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  controller: {fileID: 2810759565769585416}
-  speed: 2.5
-  sprintSpeed: 6
-  gravity: -9.81
-  jumpHeight: 1
-  groundCheck: {fileID: 2810759566167947302}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!208 &2810759565769585415
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -549,6 +525,31 @@ MonoBehaviour:
   showRoomGUI: 1
   readyToBegin: 0
   index: 0
+--- !u!114 &-7640505064039062568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810759565769585418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ba2ba4fc050304a98e2a4b4c6120ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  controller: {fileID: 2810759565769585416}
+  playerName: 
+  speed: 2.5
+  sprintSpeed: 6
+  gravity: -12
+  jumpHeight: 1
+  groundCheck: {fileID: 2810759566167947302}
+  groundDistance: 0.4
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2810759566167947481
 GameObject:
   m_ObjectHideFlags: 0

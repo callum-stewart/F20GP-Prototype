@@ -767,8 +767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 500
-  offsetY: 200
+  offsetX: 0
+  offsetY: 0
 --- !u!114 &1022980298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs: []
   showRoomGUI: 1
-  minPlayers: 3
+  minPlayers: 1
   roomPlayerPrefab: {fileID: 5347066502038240879, guid: 09c86fb61497930438aad100fa5cd47d, type: 3}
   RoomScene: Assets/Editor/Scenes/Lobby.unity
   GameplayScene: Assets/Editor/Scenes/The Labs.unity

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-public class PlayerMovement : NetworkBehaviour
+public class PlayerController : NetworkBehaviour
 {
     
     public CharacterController controller;  // reference to the Character Controller object
