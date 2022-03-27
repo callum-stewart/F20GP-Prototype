@@ -14,7 +14,6 @@ public class Generator : Interactable
             l.generatorSwitch();
             lights.Add(l);
         }
-            
     }
 
     private void Update()

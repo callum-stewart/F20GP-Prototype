@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 286947110}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3373509973
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -594,6 +598,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 2040051666}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 572188581
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -3294,147 +3302,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1001 &257211760
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 197077469}
-    m_Modifications:
-    - target: {fileID: 3771791673993759521, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Name
-      value: Generator
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759581, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 1067459483}
-    - target: {fileID: 3771791673993759582, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759582, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759582, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Size.z
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759582, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Center.x
-      value: 0.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759582, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Center.y
-      value: 0.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771791673993759583, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 1067459483}
-    m_RemovedComponents:
-    - {fileID: 3771791673993759579, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 4dedecd94da715144ba56194616463bd, type: 3}
 --- !u!4 &257211761 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3771791673993759578, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-  m_PrefabInstance: {fileID: 257211760}
+  m_CorrespondingSourceObject: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+  m_PrefabInstance: {fileID: 285706647925997090}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &257211762 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3771791673993759521, guid: 4dedecd94da715144ba56194616463bd, type: 3}
-  m_PrefabInstance: {fileID: 257211760}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &257211763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257211762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e889ac025ca15514c804f164ea3f3615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  displayText: Press  E to Power Generator
-  disableText: 
---- !u!114 &257211764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257211762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 2216073996
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 4dedecd94da715144ba56194616463bd
-  hasSpawned: 0
 --- !u!1 &260588289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3419,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 1502067735}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3006447393
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -4070,6 +3946,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 936155646}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3947707340
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -4152,6 +4032,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 125078399}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2849183416
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -4646,6 +4530,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 1485142237}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3513509160
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -6482,6 +6370,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 432790587}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2476395981
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -7496,6 +7388,7 @@ MonoBehaviour:
   syncInterval: 0.1
   displayText: Press E to Pull Lever
   disableText: 
+  interactive: 0
 --- !u!114 &496929857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16334,6 +16227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 896708616}
     m_Modifications:
+    - target: {fileID: -1043955361278420738, guid: 4dedecd94da715144ba56194616463bd, type: 3}
+      propertyPath: sceneId
+      value: 182095769
+      objectReference: {fileID: 0}
     - target: {fileID: 3771791673993759521, guid: 4dedecd94da715144ba56194616463bd, type: 3}
       propertyPath: m_Name
       value: CardReader
@@ -16441,6 +16338,7 @@ MonoBehaviour:
   syncInterval: 0.1
   displayText: Press E to Open Door
   disableText: 
+  interactive: 0
   door: {fileID: 996213685}
 --- !u!114 &719879667
 MonoBehaviour:
@@ -25796,6 +25694,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 94230035}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2362317734
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -27844,6 +27746,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 1249420457}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 1253875520
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -28098,6 +28004,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1643682990}
     m_Modifications:
+    - target: {fileID: -1043955361278420738, guid: 4dedecd94da715144ba56194616463bd, type: 3}
+      propertyPath: sceneId
+      value: 2518711780
+      objectReference: {fileID: 0}
     - target: {fileID: 3771791673993759521, guid: 4dedecd94da715144ba56194616463bd, type: 3}
       propertyPath: m_Name
       value: KeyCard
@@ -31465,6 +31375,7 @@ MonoBehaviour:
   syncInterval: 0.1
   displayText: Press E to Pickup Keycard
   disableText: 
+  interactive: 0
 --- !u!114 &994441898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31517,6 +31428,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 953767894}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 263046530
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -31856,6 +31771,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 1468362972}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 447257140
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -35353,7 +35272,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh88732
+  m_Name: pb_Mesh52948
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36502,6 +36421,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[4]
       value: 
       objectReference: {fileID: 1313223333}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3723394289
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -37010,6 +36933,7 @@ MonoBehaviour:
   syncInterval: 0.1
   displayText: Press E to Open Door
   disableText: 
+  interactive: 0
   door: {fileID: 1909664216}
 --- !u!1001 &1132138314
 PrefabInstance:
@@ -37034,6 +36958,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[1]
       value: 
       objectReference: {fileID: 1281023804}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 1704568219
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -43060,6 +42988,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 889980736}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2175239675
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -43142,6 +43074,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 1367094819}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2432835877
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -43490,6 +43426,10 @@ PrefabInstance:
     - target: {fileID: 2003986163, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: circuit.Array.data[7]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 1338794195
       objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
@@ -45267,6 +45207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1909664215}
     m_Modifications:
+    - target: {fileID: -1043955361278420738, guid: 4dedecd94da715144ba56194616463bd, type: 3}
+      propertyPath: sceneId
+      value: 4143114686
+      objectReference: {fileID: 0}
     - target: {fileID: 3771791673993759521, guid: 4dedecd94da715144ba56194616463bd, type: 3}
       propertyPath: m_Name
       value: CardReader
@@ -47590,6 +47534,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[3]
       value: 
       objectReference: {fileID: 293231807}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3157988997
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -55262,6 +55210,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 412381022}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 317521192
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -55344,6 +55296,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 610480227}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 1398418101
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -55719,6 +55675,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 19901227}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3084941028
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -58420,6 +58380,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 1986068302}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2861790278
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -58502,6 +58466,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 125553815}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 3286136632
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -60319,6 +60287,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 268296060}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 510256653
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -62549,6 +62521,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 2039528150}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 1761007613
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -63676,6 +63652,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[0]
       value: 
       objectReference: {fileID: 166344042}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 1063319507
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Light Switch Variant
@@ -63739,6 +63719,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7613539279926318311, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
   m_PrefabInstance: {fileID: 2145524056}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &285706647925997090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 197077469}
+    m_Modifications:
+    - target: {fileID: 257211764, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: sceneId
+      value: 2216073996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419016, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012443546725419021, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1067459483}
+    - target: {fileID: 4012443546725419023, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1067459483}
+    - target: {fileID: 4012443546725419123, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
+      propertyPath: m_Name
+      value: Generator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16416b7a58455e8459470bdb23623c3a, type: 3}
 --- !u!1001 &3009806145590540597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65395,6 +65444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1064588521}
     m_Modifications:
+    - target: {fileID: -1043955361278420738, guid: 4dedecd94da715144ba56194616463bd, type: 3}
+      propertyPath: sceneId
+      value: 1144134156
+      objectReference: {fileID: 0}
     - target: {fileID: 3771791673993759521, guid: 4dedecd94da715144ba56194616463bd, type: 3}
       propertyPath: m_Name
       value: Release Lever
@@ -65493,6 +65546,10 @@ PrefabInstance:
       propertyPath: circuit.Array.data[2]
       value: 
       objectReference: {fileID: 260588291}
+    - target: {fileID: 3203045637288609603, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
+      propertyPath: sceneId
+      value: 2541616892
+      objectReference: {fileID: 0}
     - target: {fileID: 7613539279926318236, guid: cdce916b36d2d2440b3ea3c4073fd697, type: 3}
       propertyPath: m_Name
       value: Reception Light Switch
