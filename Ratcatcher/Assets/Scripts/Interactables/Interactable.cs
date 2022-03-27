@@ -7,7 +7,7 @@ public class Interactable : NetworkBehaviour
 {
     public string displayText;
     public string disableText = "";
-    protected bool interactive = false;
+    public bool interactive = false;
     protected bool disabled = false;
     protected Collider playerCollider;
 

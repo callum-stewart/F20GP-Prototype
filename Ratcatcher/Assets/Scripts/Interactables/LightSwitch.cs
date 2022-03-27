@@ -8,21 +8,42 @@ public class LightSwitch : Interactable
     [SerializeField]
     public Light[] circuit;
     [SyncVar]
-    public bool powered = false;
+    public bool powered = true;
     [SyncVar]
     public bool isOn = true;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (interactive && Input.GetButtonDown("Interact"))
-        {
-            FindObjectOfType<AudioManager>().Play("Flashlight");
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    if (interactive && Input.GetButtonDown("Interact"))
+    //    {
+    //        FindObjectOfType<AudioManager>().Play("Flashlight");
 
-            if (powered)
-                playerCollider.gameObject.GetComponent<PlayerInteraction>().CmdLightChange(this);
-                //changeLights();
+    //        if (powered)
+    //            playerCollider.gameObject.GetComponent<PlayerInteraction>().CmdLightChange(this);
+    //            //changeLights();
+    //    }
+    //}
+    private void Start()
+    {
+        powered = true;
+    }
+
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+        if (!disabled)
+        {
+            other.GetComponent<PlayerInteraction>().light = this;
         }
+    }
+
+    // close text
+    public override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerEnter(other);
+        other.GetComponent<PlayerInteraction>().light = null;
     }
 
     [Command]
