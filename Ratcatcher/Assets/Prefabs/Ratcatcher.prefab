@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -277,7 +277,7 @@ Camera:
   m_GameObject: {fileID: 7149090875902870353}
   m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.26040506, g: 1, b: 0.19215688, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -373,7 +373,7 @@ Camera:
   m_GameObject: {fileID: 8300448409362964178}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.26040506, g: 1, b: 0.19215688, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2

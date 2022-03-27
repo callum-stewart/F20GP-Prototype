@@ -40,7 +40,7 @@ Camera:
   m_GameObject: {fileID: 118177284122299608}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.26040506, g: 1, b: 0.19215688, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -118,7 +118,7 @@ Camera:
   m_GameObject: {fileID: 2810759564721930199}
   m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.26040506, g: 1, b: 0.19215688, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -550,6 +550,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  health: 2
 --- !u!1 &2810759566167947481
 GameObject:
   m_ObjectHideFlags: 0
