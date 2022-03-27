@@ -508,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  light: {fileID: 0}
 --- !u!114 &2702037514839975845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +552,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   health: 2
+  particle: {fileID: 4255682923965627618, guid: 5b815f800c9250d4c8e84fe90d8d0290, type: 3}
 --- !u!1 &2810759566167947481
 GameObject:
   m_ObjectHideFlags: 0

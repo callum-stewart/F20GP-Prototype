@@ -5,6 +5,7 @@ using Mirror;
 
 public class RatCatcherController : PlayerController
 {
+    float health = 20;
     new float speed = 4f;
     float chargeTimer = 0f;
     float attackRange = 1f;
@@ -14,6 +15,7 @@ public class RatCatcherController : PlayerController
     {
         if (GetComponent<NetworkIdentity>().hasAuthority)
         {
+            health += Time.deltaTime;
             base.Update();
             if (Input.GetButton("Interact"))
             {
@@ -58,6 +60,15 @@ public class RatCatcherController : PlayerController
                 exterm.Attacked();
             }
 
+        }
+    }
+
+    public void Hurt()
+    {
+        health--;
+        if(health < 0)
+        {
+            FindObjectOfType<GameManager>().ChangeScene(3);
         }
     }
 

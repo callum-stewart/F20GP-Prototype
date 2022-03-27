@@ -7,6 +7,21 @@ public class ExterminatorController : PlayerController
 {
     public int health = 2;
     private float rushVal = 7f;
+    public SprayParticle particle;
+
+    public void Update()
+    {
+        if (GetComponent<NetworkIdentity>().hasAuthority)
+        {
+            base.Update();
+            
+            if(Input.GetButtonDown("Fire1"))
+            {
+                SprayParticle newSpray = Object.Instantiate(particle, transform.position + (Vector3.up / 2), transform.rotation);
+                newSpray.SetInitPos(transform.position + (Vector3.up / 2));
+            }
+        }
+    }
 
     public void Attacked()
     {
