@@ -6,7 +6,7 @@ using Mirror;
 public class CustomNetworkManager : NetworkRoomManager
 {
     public GameObject PlayerPrefab2;
-    bool isRatCatcher = true;
+    bool isRatCatcher = false;
     Vector3 spawnpoint = new Vector3(-10, 0, 25);
 
     public override GameObject OnRoomServerCreateGamePlayer(NetworkConnectionToClient conn, GameObject roomPlayer)
